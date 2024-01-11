@@ -1,17 +1,23 @@
-endi:
-  name: Endilie Yacop Sucipto
-  title: Maintainer of Docusaurus
-  url: https://github.com/endiliey
-  image_url: https://github.com/endiliey.png
+rober:
+  name: Roberto Álvarez
+  title: Bussiness & Product Manager
+  url: https://github.com/roberjunquera
+  image_url: https://github.com/roberjunquera.png
 
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+alex:
+  name: Alejandro Albuerne
+  title: Design & UX
+  url: https://github.com/aalbuerne
+  image_url: https://github.com/aalbuerne.png
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+guille:
+  name: Guille Vigil
+  title: Platform Engineer
+  url: https://guillermotti.com
+  image_url: https://github.com/guillermotti.png
+
+ramiro:
+  name: Ramiro Álvarez
+  title: Platform Engineer
+  url: https://ramiroalvfer.com
+  image_url: https://github.com/kaskol10.png

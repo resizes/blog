@@ -1,17 +1,15 @@
 ---
 slug: resizes-mission
 title: Resizes Mission
-authors:
-  name: Guille Vigil
-  title: Platform Engineer
-  url: https://github.com/guillermotti
-  image_url: https://github.com/guillermotti.png
+authors: ramiro
 tags: [DevOps, PlatformEngineering, CloudNative, DeveloperExperience, Innovation]
 ---
 
 🚀 Embracing DevOps and Platform Engineering for Modern Businesses 🚀
 
 In the ever-evolving tech landscape, DevOps is more alive than ever. At Resizes, we're harnessing the power of DevOps methodologies and best practices to revolutionize Internal Developer Platforms (IDPs) and implement Platform Engineering across companies of all sizes.
+
+<!--truncate-->
 
 🔑 Our goal? To fulfill the original DevOps promise: “you build it, you run it”.
 
