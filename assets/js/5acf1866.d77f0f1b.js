@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[9156],{3659:e=>{e.exports=JSON.parse('{"label":"SoftwareDevelopment","permalink":"/tags/software-development","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

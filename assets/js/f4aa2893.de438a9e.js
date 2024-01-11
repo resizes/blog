@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[6922],{3106:s=>{s.exports=JSON.parse('{"label":"DevOps","permalink":"/tags/dev-ops","allTagsPath":"/tags","count":3,"unlisted":false}')}}]);

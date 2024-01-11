@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[7295],{3869:e=>{e.exports=JSON.parse('{"label":"DeveloperExperience","permalink":"/tags/developer-experience","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

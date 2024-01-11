@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[7897],{1942:s=>{s.exports=JSON.parse('{"label":"CI/CD","permalink":"/tags/ci-cd","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

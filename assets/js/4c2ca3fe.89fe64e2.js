@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[9653],{8388:e=>{e.exports=JSON.parse('{"label":"TechInnovation","permalink":"/tags/tech-innovation","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

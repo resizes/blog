@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[3867],{2582:e=>{e.exports=JSON.parse('{"label":"PlatformEngineering","permalink":"/tags/platform-engineering","allTagsPath":"/tags","count":3,"unlisted":false}')}}]);

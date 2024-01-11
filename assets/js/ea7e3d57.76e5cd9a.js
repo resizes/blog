@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[7941],{779:s=>{s.exports=JSON.parse('{"label":"DigitalTransformation","permalink":"/tags/digital-transformation","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

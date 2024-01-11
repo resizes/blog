@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[5141],{7760:e=>{e.exports=JSON.parse('{"label":"PerformanceEngineering","permalink":"/tags/performance-engineering","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.resiz.es/</id>
+    <title>Resizes Blog</title>
+    <updated>2024-01-10T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://blog.resiz.es/"/>
+    <subtitle>Resizes Blog</subtitle>
+    <icon>https://blog.resiz.es/img/resizes.png</icon>
+    <entry>
+        <title type="html"><![CDATA[DORA Metrics]]></title>
+        <id>https://blog.resiz.es/dora-metrics</id>
+        <link href="https://blog.resiz.es/dora-metrics"/>
+        <updated>2024-01-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[📌 Elevate your team's performance with DORA Metrics! 📊]]></summary>
+        <content type="html"><![CDATA[<p>📌 Elevate your team's performance with DORA Metrics! 📊</p>
+<p>Unlock insights into lead time, deployment frequency, mean time to recovery and change failure rate. Learn how to optimize your DevOps practices for success. 💡</p>
+<p><img loading="lazy" alt="Dora Metrics" src="https://blog.resiz.es/assets/images/dora-1-49749e23ef5e6d96c7c6d26785cc07b1.png" width="553" height="551" class="img_ev3q"></p>
+<p><img loading="lazy" alt="Lead Time For Changes" src="https://blog.resiz.es/assets/images/dora-2-9b6267ffa9f483641cbf94acd7a5b557.png" width="553" height="552" class="img_ev3q"></p>
+<p><img loading="lazy" alt="Deployment Frequency" src="https://blog.resiz.es/assets/images/dora-3-cd71e6bd14bf4bcac2bb88c6fb5b29a4.png" width="553" height="551" class="img_ev3q"></p>
+<p><img loading="lazy" alt="Mean Time To Recovery" src="https://blog.resiz.es/assets/images/dora-4-10f4502892e8497177812e9f591b539b.png" width="553" height="551" class="img_ev3q"></p>
+<p><img loading="lazy" alt="Change Failure Rate" src="https://blog.resiz.es/assets/images/dora-5-8d025e4b242c8f56af4b094768f00170.png" width="553" height="552" class="img_ev3q"></p>
+<p><img loading="lazy" alt="Dora Metrics" src="https://blog.resiz.es/assets/images/dora-6-835939802690b74a0dcaa273c357f644.png" width="553" height="550" class="img_ev3q"></p>
+<p>🚀 DORA Metrics: The Key to DevOps Success 🚀</p>]]></content>
+        <author>
+            <name>Roberto Álvarez</name>
+            <uri>https://github.com/roberjunquera</uri>
+        </author>
+        <author>
+            <name>Alejandro Albuerne</name>
+            <uri>https://github.com/aalbuerne</uri>
+        </author>
+        <category label="DevOps" term="DevOps"/>
+        <category label="DORAMetrics" term="DORAMetrics"/>
+        <category label="PerformanceOptimization" term="PerformanceOptimization"/>
+        <category label="Automation" term="Automation"/>
+        <category label="PerformanceEngineering" term="PerformanceEngineering"/>
+        <category label="PlatformEngineering" term="PlatformEngineering"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CI/CD with OIDC]]></title>
+        <id>https://blog.resiz.es/cicd-oidc</id>
+        <link href="https://blog.resiz.es/cicd-oidc"/>
+        <updated>2024-01-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🚀 Leveraging OIDC for Enhanced Security and Efficiency Between GitHub Actions/GitLab CI and AWS 🔒]]></summary>
+        <content type="html"><![CDATA[<p>🚀 Leveraging OIDC for Enhanced Security and Efficiency Between GitHub Actions/GitLab CI and AWS 🔒</p>
+<p>In the rapidly evolving landscape of DevOps and cloud computing, the integration of GitHub Actions or GitLab CI with AWS using OpenID Connect (OIDC) stands out as a game changer. Here's why embracing OIDC can significantly benefit your CI/CD pipelines:</p>
+<ol>
+<li>
+<p>Enhanced Security: OIDC eliminates the need to store long-lived credentials like AWS access keys in your GitHub or GitLab repositories. This reduces the risk of credential leakage and enhances the overall security of your deployment processes.</p>
+</li>
+<li>
+<p>Seamless Identity Federation: OIDC allows AWS to trust GitHub Actions or GitLab CI to authenticate users, streamlining the identity verification process. This simplifies user management and ensures a more secure and efficient authentication mechanism.</p>
+</li>
+<li>
+<p>Automated Role Assumption: With OIDC, specific AWS roles can be assumed directly in GitHub Actions or GitLab CI pipelines. This facilitates granular permission control and ensures that only necessary permissions are granted for each task, enhancing both security and compliance, following the principle of least privilege.</p>
+</li>
+<li>
+<p>Scalability and Flexibility: OIDC enables a more scalable and flexible approach to managing cloud resources. As your project grows, it's easy to update and manage permissions without altering the underlying infrastructure.</p>
+</li>
+<li>
+<p>Cost-Effective: By leveraging OIDC, there's a reduction in the management overhead associated with credential rotation and management, potentially leading to cost savings and reduced operational complexity.</p>
+</li>
+</ol>
+<p>🔗 Integrating OIDC with your CI/CD pipelines in GitHub Actions or GitLab CI not only fortifies your security posture but also streamlines your operational workflows. It's a win-win for teams looking to enhance their cloud capabilities in a secure and efficient manner.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>References</div><div class="admonitionContent_BuS1"><ul>
+<li><a href="https://lnkd.in/gfHvESY6" target="_blank" rel="noopener noreferrer">https://lnkd.in/gfHvESY6</a></li>
+<li><a href="https://lnkd.in/dcm_9yVy" target="_blank" rel="noopener noreferrer">https://lnkd.in/dcm_9yVy</a></li>
+</ul></div></div>
+<p>Note that other cloud providers like Azure or GCP have also OIDC integrations with GitHub Actions or GitLab CI. And other CI/CD tools like Azure DevOps may have OIDC integrations with cloud providers. Find your best combination!</p>
+<p>If you are using GitHub Actions and AWS, you can use our open sourced Terraform module to create IAM related resources and handle permissions for different branches or tags:</p>
+<p><a href="https://github.com/resizes/platform-terraform-module-github-oidc-aws-role" target="_blank" rel="noopener noreferrer">https://github.com/resizes/platform-terraform-module-github-oidc-aws-role</a></p>
+<div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token operator" style="color:#393A34">&lt;</span><span class="token plain">button onClick</span><span class="token operator" style="color:#393A34">=</span><span class="token punctuation" style="color:#393A34">{</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token arrow operator" style="color:#393A34">=&gt;</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">alert</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">'button clicked!'</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">}</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token maybe-class-name">Click</span><span class="token plain"> me</span><span class="token operator" style="color:#393A34">!</span><span class="token operator" style="color:#393A34">&lt;</span><span class="token operator" style="color:#393A34">/</span><span class="token plain">button</span><span class="token operator" style="color:#393A34">&gt;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<button>Click me!</button>]]></content>
+        <author>
+            <name>Guille Vigil</name>
+            <uri>https://guillermotti.com</uri>
+        </author>
+        <category label="CI/CD" term="CI/CD"/>
+        <category label="OIDC" term="OIDC"/>
+        <category label="GitHub" term="GitHub"/>
+        <category label="GitLab" term="GitLab"/>
+        <category label="Terraform" term="Terraform"/>
+        <category label="AWS" term="AWS"/>
+        <category label="Security" term="Security"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IDPs and Platform Engineering]]></title>
+        <id>https://blog.resiz.es/idp-and-platform-engineering</id>
+        <link href="https://blog.resiz.es/idp-and-platform-engineering"/>
+        <updated>2023-12-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🚀 Embracing Innovation in Tech: The Power of Platform Engineering and Internal Developer Platforms (IDPs) 🌟]]></summary>
+        <content type="html"><![CDATA[<p>🚀 Embracing Innovation in Tech: The Power of Platform Engineering and Internal Developer Platforms (IDPs) 🌟</p>
+<p>In the rapidly evolving landscape of technology, two game-changers have emerged as key players: Platform Engineering and Internal Developer Platforms (IDPs). These innovative approaches are reshaping how we build, deploy, and manage software. Let's dive into their transformative benefits:</p>
+<ul>
+<li>Streamlined Development Process: IDPs provide a unified platform for development teams, significantly reducing the complexity involved in software creation. This streamlined approach accelerates development cycles, enabling quicker deployment and faster time-to-market.</li>
+</ul>
+<ul>
+<li>
+<p>Enhanced Collaboration: Platform Engineering fosters a collaborative environment where developers, operations teams, and other stakeholders can work seamlessly together. This synergy not only boosts productivity but also enhances the quality of the end product.</p>
+</li>
+<li>
+<p>Scalability and Flexibility: With the scalability offered by Platform Engineering, businesses can effortlessly adapt to changing demands. IDPs complement this by offering flexible tools that cater to various development needs, ensuring that scalability does not compromise performance.</p>
+</li>
+<li>
+<p>Consistency and Standardization: IDPs establish standardized processes and toolsets across projects, leading to consistency in development practices. This uniformity is crucial for maintaining quality and reliability in software products.</p>
+</li>
+<li>
+<p>Empowering Developers: By abstracting away the complexities of infrastructure management, IDPs allow developers to focus on what they do best – coding. This empowerment leads to higher job satisfaction and increased innovation.</p>
+</li>
+<li>
+<p>Cost-Effective Solutions: Platform Engineering can lead to significant cost savings by optimizing resource utilization and reducing the overhead associated with managing disparate systems and tools.</p>
+</li>
+<li>
+<p>Enhanced Security and Compliance: With a centralized platform, enforcing security protocols and compliance standards becomes more manageable, ensuring that all development activities adhere to the highest security norms.</p>
+</li>
+</ul>
+<p>🌐 Looking Ahead: As we embrace these technologies, the potential for innovation is boundless. Platform Engineering and IDPs are not just tools; they represent a paradigm shift in how we approach software development, promising a future of efficiency, collaboration, and excellence in technology.</p>]]></content>
+        <author>
+            <name>Roberto Álvarez</name>
+            <uri>https://github.com/roberjunquera</uri>
+        </author>
+        <category label="PlatformEngineering" term="PlatformEngineering"/>
+        <category label="InternalDeveloperPlatforms" term="InternalDeveloperPlatforms"/>
+        <category label="TechInnovation" term="TechInnovation"/>
+        <category label="SoftwareDevelopment" term="SoftwareDevelopment"/>
+        <category label="DigitalTransformation" term="DigitalTransformation"/>
+        <category label="DevOps" term="DevOps"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Resizes Mission]]></title>
+        <id>https://blog.resiz.es/resizes-mission</id>
+        <link href="https://blog.resiz.es/resizes-mission"/>
+        <updated>2023-12-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🚀 Embracing DevOps and Platform Engineering for Modern Businesses 🚀]]></summary>
+        <content type="html"><![CDATA[<p>🚀 Embracing DevOps and Platform Engineering for Modern Businesses 🚀</p>
+<p>In the ever-evolving tech landscape, DevOps is more alive than ever. At Resizes, we're harnessing the power of DevOps methodologies and best practices to revolutionize Internal Developer Platforms (IDPs) and implement Platform Engineering across companies of all sizes.</p>
+<p>🔑 Our goal? To fulfill the original DevOps promise: “you build it, you run it”.</p>
+<p>💡 Enhancing Developer Experience with Cloud Native Tech: With the latest in Cloud Native technologies, we're here to dramatically improve your Developer Experience (DevEx). Our approach ensures that your development teams are not bogged down by repetitive tasks, fostering high performance and reducing dependency on Ops teams.</p>
+<p>🌟 The Secret to High-Performing Teams? Teams that excel have one thing in common: they've built an Internal Developer Platform that's pivotal to their DevOps success. These platforms not only boost developer experience and productivity but also utilize a blend of open-source and proprietary tools, treating the platform as a critical product.</p>
+<p>🛠️ Build or Be Built: Remember, if you don't proactively build your platform, it will inevitably build itself. The real question is whether you standardize this process or leave it to chance.</p>
+<p>📊 DORA Metrics in Focus: We're keeping a keen eye on key DORA metrics like deployment frequency, change lead time, change failure rate, and MTTR (service production restoration time) to ensure peak performance.</p>
+<p>📦 Containerization: The Scale Game-Changer: In our journey, containerization has emerged as the essential element for scaling apps efficiently.</p>
+<p>Join us at Resizes in shaping the future of DevOps and Platform Engineering. Let's create systems that not only work but excel in the modern digital era.</p>]]></content>
+        <author>
+            <name>Ramiro Álvarez</name>
+            <uri>https://ramiroalvfer.com</uri>
+        </author>
+        <category label="DevOps" term="DevOps"/>
+        <category label="PlatformEngineering" term="PlatformEngineering"/>
+        <category label="CloudNative" term="CloudNative"/>
+        <category label="DeveloperExperience" term="DeveloperExperience"/>
+        <category label="Innovation" term="Innovation"/>
+    </entry>
+</feed>

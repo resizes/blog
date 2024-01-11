@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[1693],{1790:s=>{s.exports=JSON.parse('{"label":"Automation","permalink":"/tags/automation","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

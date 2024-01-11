@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[6947],{5937:s=>{s.exports=JSON.parse('{"label":"GitLab","permalink":"/tags/git-lab","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

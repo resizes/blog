@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[4872],{9828:s=>{s.exports=JSON.parse('{"label":"OIDC","permalink":"/tags/oidc","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

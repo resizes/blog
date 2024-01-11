@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[8973],{9562:e=>{e.exports=JSON.parse('{"label":"Security","permalink":"/tags/security","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);

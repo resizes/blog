@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresizes=self.webpackChunkresizes||[]).push([[8845],{5300:e=>{e.exports=JSON.parse('{"label":"PerformanceOptimization","permalink":"/tags/performance-optimization","allTagsPath":"/tags","count":1,"unlisted":false}')}}]);
