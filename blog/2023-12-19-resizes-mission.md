@@ -1,7 +1,7 @@
 ---
 slug: resizes-mission
 title: Resizes Mission
-authors: ramiro
+authors: guille
 tags: [DevOps, PlatformEngineering, CloudNative, DeveloperExperience, Innovation]
 ---
 
