@@ -37,7 +37,7 @@ Our choice for Git cloud hosting is [GitHub](https://github.com/), a platform th
 
 Our primary hosting service is [AWS](https://aws.amazon.com/), a leader in on-demand cloud computing platforms and APIs. AWS's global reach, offering over 175 comprehensive services, makes it our choice for robust and scalable cloud infrastructure.
 
-::: note
+:::note
 **Flexible Cloud Solutions**: We're also equipped to work with other public cloud providers like [Google Cloud Platform](https://cloud.google.com/) or [Microsoft Azure](https://azure.microsoft.com/), adapting to your preferred infrastructure.
 :::
 
@@ -49,7 +49,7 @@ Our primary hosting service is [AWS](https://aws.amazon.com/), a leader in on-de
 
 [Terraform](https://www.terraform.io/) is our go-to tool for IaC, allowing us to safely and predictably manage cloud infrastructure. This open-source tool excels in creating, changing, and versioning infrastructure efficiently, supporting a wide range of service providers and custom solutions.
 
-::: note
+:::note
 **Studying Alternatives**: While Terraform is our primary choice, we're currently considering [OpenTofu](https://opentofu.org/) as a potential alternative, following its recent release.
 :::
 
@@ -77,7 +77,7 @@ Seamless Software Lifecycle Management: Continuous Integration (CI) and Continuo
 
 [GitHub Actions](https://docs.github.com/en/actions) is our tool of choice for automating both CI and CD processes. This platform facilitates software workflows, enabling us to build, test, and deploy code directly from GitHub, streamlining branch management and code reviews.
 
-::: note
+:::note
 **Adaptable CI/CD Tools**: We're also equipped to work with other CI/CD tools like [Jenkins](https://www.jenkins.io/) or [GitLab CI](https://docs.gitlab.com/ee/ci/), tailoring our approach to your existing setup.
 :::
 
