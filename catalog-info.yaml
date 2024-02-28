@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Blog
+  description: |
+    Blog dedicated to share knowledge about Resizes.
+  tags: [blog, resizes]
+  links:
+  - url: https://blog.resiz.es
+    title: Site
+  annotations:
+    github.com/project-slug: resizes/blog
+spec:
+  type: blog
+  lifecycle: experimental
+  owner: employees
+  system: resizes

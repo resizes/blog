@@ -1,0 +1,17 @@
+rober:
+  name: Rober Junquera
+  title: Strategy & Product
+  url: https://github.com/roberjunquera
+  image_url: https://github.com/roberjunquera.png
+
+alex:
+  name: Alejandro Albuerne
+  title: Design & UX
+  url: https://github.com/aalbuerne
+  image_url: https://github.com/aalbuerne.png
+
+resizes:
+  name: Resizes
+  title: Platform Engineer
+  url: https://resiz.es
+  image_url: https://github.com/resizes-bot.png
