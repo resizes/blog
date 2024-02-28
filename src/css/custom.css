@@ -47,6 +47,10 @@ div.navbar__logo {
   color: #f71a40;
 }
 
+#__blog-post-container > p > a {
+  color: #fe1aa7;
+}
+
 /* For readability concerns, you should choose a lighter palette in dark mode. linear-gradient(0deg,#FE1AA7 0%,#F71A40 165%) */
 [data-theme="dark"] {
   --ifm-color-primary: #f9fafa;
