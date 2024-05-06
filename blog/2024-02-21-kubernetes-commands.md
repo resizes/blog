@@ -1,7 +1,7 @@
 ---
 slug: kubernetes-commands
 title: Kubernetes Most Used Commands
-authors: resizes
+authors: guille
 tags: [PlatformEngineering, Helm, Kubernetes, DevOps]
 ---
 

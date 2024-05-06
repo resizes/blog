@@ -1,7 +1,7 @@
 ---
 slug: microservices-architecture
 title: Microservices Architecture
-authors: resizes
+authors: guille
 tags: [PlatformEngineering, Microservices, Kubernetes, Containers, Docker, DevOps]
 ---
 

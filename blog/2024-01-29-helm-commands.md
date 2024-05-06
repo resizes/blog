@@ -1,7 +1,7 @@
 ---
 slug: helm-commands
 title: Helm Most Used Commands
-authors: resizes
+authors: guille
 tags: [PlatformEngineering, Helm, Kubernetes, DevOps]
 ---
 
