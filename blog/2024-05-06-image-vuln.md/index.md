@@ -9,6 +9,8 @@ Do you know that you can reduce your application image vulnerabilities from **mo
 
 Do you know that you can reduce your image application size **more than 85%**?
 
+<!--truncate-->
+
 ## Introduction
 
 Any piece of software can be improved, there is no perfect software out there. We can improve our software with many different strategies such as:
