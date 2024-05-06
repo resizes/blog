@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -81,7 +81,8 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorial',
           // },
-          {to: '/', label: 'Blog', position: 'left'},
+          { to: '/', label: 'Blog', position: 'left' },
+          { href: 'https://docs.resiz.es', label: 'Docs', position: 'left' },
           {
             href: 'https://github.com/resizes',
             label: 'GitHub',
