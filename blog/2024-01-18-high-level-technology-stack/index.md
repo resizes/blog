@@ -1,7 +1,7 @@
 ---
 slug: high-level-technology-stack
 title: High Level Technology Stack
-authors: [resizes]
+authors: [guille]
 tags: [DevOps, PlatformEngineering, CloudNative, DeveloperExperience, Innovation]
 ---
 
