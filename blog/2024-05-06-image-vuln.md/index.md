@@ -1,6 +1,6 @@
 ---
 slug: image-vulnerabilities
-title: Reducing app image vulnerabilities to 0!
+title: María this is your next blog post!
 authors: guille
 tags: [PlatformEngineering, Security, DevOps, Vulnerabilities]
 ---
