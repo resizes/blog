@@ -2,7 +2,7 @@
 slug: sftp-server-in-kubernetes-with-sftpgo
 title: SFTP server in Kubernetes with SFTPGo
 authors: maria
-tags: [DevOps, PlatformEngineering, CloudNative, DeveloperExperience, Innovation]
+tags: [DevOps, PlatformEngineering, SFTPGo, Kubernetes, DeveloperExperience, ExternalSecrets, Terraform, AWS]
 ---
 
 Have you ever needed to create an SFTP server? How do you do it?
