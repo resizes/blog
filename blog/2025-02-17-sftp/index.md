@@ -12,7 +12,7 @@ export default function SFTPGoPage() {
   return (
     <>
       <Head>
-        <meta property="og:image" content="image.png" />
+        <meta property="og:image" content="URLimage.png" />
       </Head>
       <main>
         <h1>SFTP server in Kubernetes with SFTPGo</h1>
