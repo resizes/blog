@@ -11,9 +11,7 @@ For those who have created an SFTP server before, you probably know that it is n
 
 SFTPGo is an open-source SFTP server that allows users to securely transfer files over SSH. It is written in Go (Golang) and is designed to be lightweight, easy to configure, and highly customizable. It supports multiple storage backends, including local filesystems, cloud storage (like S3, Google Cloud Storage, etc.), and more.
 
-In this case, we want to install SFTPGo on our EKS cluster and we are going to use S3 to store the files for our SFTP server. 
-
-So we are going to start by creating the necessary infrastructure with Terraform.
+The deployment of SFTPGo on an EKS cluster begins with provisioning the required resources, so let's start by creating the necessary infrastructure with Terraform.
 
 <!--truncate-->
 
@@ -45,15 +43,13 @@ As you can see, we are using a PostgreSQL database to store the users and the co
 
 # SFTPGo resources
 
-On the other hand, we will also need to create any other resource related to this new SFTP (policies, IAM role, permissions, etc.).
+On the other hand, it is necessary to create any other resource related to this new SFTP (policies, IAM role, permissions, etc.).
 
 We will create one role to access the **AWS Secrets Manager** and another to **access an S3 bucket**.
 
-> **S3 bucket**: We use an S3 bucket to store the documents managed in the SFTP. We can use a single bucket for everything, but it is possible to use multiple buckets. Each user inside the SFTP can have access to a different bucket, or even a different folder inside the same bucket.
+> The **s3 bucket** is used for storing the documents managed in the SFTP. We can use a single bucket for everything, but it is possible to use multiple buckets. Each user inside the SFTP can have access to a different bucket, or even a different folder inside the same bucket.
 
 Our code would look something like this:
-
->
 
 ```hcl
 data "aws_iam_policy_document" "sftpgo" {
@@ -156,7 +152,9 @@ resource "aws_s3_bucket_public_access_block" "sftpgo" {
 }
 ```
 
-We will also add a new data reference to our EKS cluster in our `data.tf`:
+>**¿What´s the IRSA Role?**: This Terraform code creates an IAM role that can be assumed by a ServiceAccount in an EKS cluster via IRSA. The role has a policy attached to it that allows access to S3. This is useful for applications running on Kubernetes that need to access AWS resources, such as S3, securely and without needing to store credentials directly on the cluster.
+
+To continue, we must also add a new data reference to our EKS cluster in our `data.tf`:
 
 ```hcl
 data "aws_eks_cluster" "cluster" {
@@ -170,13 +168,13 @@ data "aws_eks_cluster" "cluster" {
 
 When everything mentioned above has been created, we can continue creating the necessary chart to set up our SFTP server in Kubernetes.
 
-We will start by creating a new folder called `sftpgo`. Inside this folder, we will begin by creating the two main files: `values.yaml` and `Chart.yaml`.
+Let's start by creating a new folder called `sftpgo`. Inside this folder, we will begin by creating the two main files: `values.yaml` and `Chart.yaml`.
 
 ### Chart.yaml
 
-Here we will list the different dependencies we will use and their versions. In this case, we will use **sftpgo** and **postgresql**.
+here will be listed the different dependencies that we will be using and their versions. In this case, **sftpgo** and **postgresql**.
 
->**PostgreSQL**: This is required to store the new users who will use this SFTP and the configuration for the SFTP server.
+>**PostgreSQL** is required to store the new users who will use this SFTP and the configuration for the SFTP server.
 
 It should look something like this:
 
@@ -198,7 +196,7 @@ dependencies:
 
 ### Values.yaml
 
-On the other hand, there is the `values.yaml`, where we collect things like the ingress, variables (in this case, retrieved from a secret stored in AWS), the serviceAccount, etc.
+On the other hand, there is the `values.yaml`, where the ingress, the serviceAccount, variables (in this case, retrieved from a secret stored in AWS) etc. are collected.
 
 It should looks like this:
 
@@ -239,11 +237,11 @@ helm dep up
 
 With this, a folder with the Helm Chart dependencies called `charts` and a `Chart.lock` file should have been created inside our `sftpgo` folder.
 
-We will also create a folder called **templates**, where we will create both `externalsecret.yaml` and `secretstore.yaml`. This will allow us to manage the secrets we have previously stored in our **AWS Secret Manager**.
+A folder called **templates** is also needed. There will be created both `externalsecret.yaml` and `secretstore.yaml`. This will allow us to manage the secrets we have previously stored in our **AWS Secret Manager**.
 
 ### secretstore.yaml
 
-We need to create a file that allows us to manage our secrets. To do this, we will create code like the following:
+The secret store is necessary to be able to manage our secrets. Its code would look something like the following:
 
 ```yml
 apiVersion: external-secrets.io/v1beta1
@@ -260,7 +258,7 @@ spec:
 
 ### externalsecret.yaml
 
-Finally, we must create an `externalsecret.yaml` file that contains all the secrets we mentioned earlier.
+Finally, the `externalsecret.yaml` file that contains all the secrets we mentioned earlier.
 
 ```yml
 apiVersion: external-secrets.io/v1beta1
@@ -289,20 +287,20 @@ spec:
 With all our resources created, we can prove that everything is going well with several steps:
 
 ### 1. Enter the SFTPGo host
-We can enter the host that we created earlier in the `values.yaml` file (sftpgo.example.com) and we will see a login screen like the one in the following image. With what we have done, we should be able to log in as the admin user using the credentials stored in our AWS Secret Manager.
+We can enter the host that we created earlier in the `values.yaml` file (sftpgo.example.com) and see a login screen like the one in the following image. With what we have done, it should be possible to log in as the admin user using the credentials stored in our AWS Secret Manager.
 
 ![Sftpgo Login](sftpgo_login.png)
 
 ### 2. Send a file from our local to SFTPGo.
 >**Remember**: We are doing everything from a user login, so we first need to create a user in the SFTPGo UI.
 
-To save a test file in SFTPGo, we will go to our terminal and log in with the following command:
+To save a test file in SFTPGo, go to our terminal and log in with the following command:
 
 ```sh
 sftp user@sftpgo.example.com
 ```
 
-Later, after creating a test .txt file, we will save it in SFTPGo inside a folder called "example" *(We can also save it directly in the root directory; it's just a test to see the possibility of navigating and organizing files within SFTPGo)*.
+Later, after creating a test .txt file, we will save it in SFTPGo inside a folder called "example" *(It's can also be saved directly in the root directory; it's just a test to see the possibility of navigating and organizing files within SFTPGo)*.
 
 ```sh
 sftp> mkdir /example  
@@ -310,7 +308,7 @@ sftp> cd /home/example
 sftp> put test_file.txt
 ```
 
-If everything has gone well, we should be able to see our file in the SFTPGo UI and if you go to the S3 bucket, you should also be able to see the file stored there.
+If everything has gone well, it should be possible to see our file in the SFTPGo UI and if you go to the S3 bucket, you should also be able to see the file stored there.
 
 # Resources
 
