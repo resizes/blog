@@ -1,7 +1,7 @@
 ---
 slug: sftp-server-in-kubernetes-with-sftpgo
 title: SFTP server in Kubernetes with SFTPGo
-authors: maría
+authors: maria
 tags: [DevOps, PlatformEngineering, SFTPGo, Kubernetes, DeveloperExperience, ExternalSecrets, Terraform, AWS]
 image: URLimage.png
 ---
