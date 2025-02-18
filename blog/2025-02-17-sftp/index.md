@@ -240,6 +240,57 @@ With this, a folder with the Helm Chart dependencies called `charts` and a `Char
 
 A folder called **templates** is also needed. There will be created both `externalsecret.yaml` and `secretstore.yaml`. This will allow us to manage the secrets we have previously stored in our **AWS Secret Manager**.
 
+
+## postgresql
+It's necessary to configure our postgres. To do so, access to the Postgres database is done through the `sftpgo-postgresql` secret.
+
+<br>
+
+```sh
+kubectl exec -it sftpgo-postgresql-0 -- psql -U postgres
+```
+</br>
+
+Once inside,  write the configuration needed, in this case it is:
+
+<br>
+
+```sh
+CREATE USER "sftpgo" WITH ENCRYPTED PASSWORD 'sftpgo_pg_pwd';
+CREATE DATABASE "sftpgo.db";
+GRANT ALL PRIVILEGES ON DATABASE "sftpgo.db" TO "sftpgo";
+CREATE TABLE schema_version (
+    version INT NOT NULL
+);
+GRANT ALL PRIVILEGES ON SCHEMA public TO sftpgo;
+SELECT grantee, privilege_type 
+FROM information_schema.role_table_grants 
+WHERE table_schema = 'public';
+ALTER SCHEMA public OWNER TO sftpgo;
+exit
+```
+
+</br>
+
+Subsequently,enter this time in the sftpgo specific database.
+
+<br>
+
+```sh
+kubectl exec -it sftpgo-postgresql-0 -- psql -U postgres -d sftpgo.db
+GRANT ALL PRIVILEGES ON DATABASE "sftpgo.db" TO sftpgo;
+GRANT USAGE, CREATE ON SCHEMA public TO sftpgo;
+ALTER SCHEMA public OWNER TO sftpgo;
+exit
+```
+
+</br>
+
+With this we would already have the necessary configuration inside postgres.
+> **Remember**: Each time the password and user are changed in the secret manager, we must (in addition to killing it in argocd) perform the above steps again inside postgres.
+
+<br>
+
 ### secretstore.yaml
 
 The secret store is necessary to be able to manage our secrets. Its code would look something like the following:
