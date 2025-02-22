@@ -244,16 +244,11 @@ A folder called **templates** is also needed. There will be created both `extern
 ## postgresql
 It's necessary to configure our postgres. To do so, access to the Postgres database is done through the `sftpgo-postgresql` secret.
 
-<br>
-
 ```sh
 kubectl exec -it sftpgo-postgresql-0 -- psql -U postgres
 ```
-</br>
 
 Once inside,  write the configuration needed, in this case it is:
-
-<br>
 
 ```sh
 CREATE USER "sftpgo" WITH ENCRYPTED PASSWORD 'sftpgo_pg_pwd';
@@ -270,11 +265,7 @@ ALTER SCHEMA public OWNER TO sftpgo;
 exit
 ```
 
-</br>
-
 Subsequently,enter this time in the sftpgo specific database.
-
-<br>
 
 ```sh
 kubectl exec -it sftpgo-postgresql-0 -- psql -U postgres -d sftpgo.db
@@ -284,12 +275,8 @@ ALTER SCHEMA public OWNER TO sftpgo;
 exit
 ```
 
-</br>
-
 With this we would already have the necessary configuration inside postgres.
 > **Remember**: Each time the password and user are changed in the secret manager, we must (in addition to killing it in argocd) perform the above steps again inside postgres.
-
-<br>
 
 ### secretstore.yaml
 
