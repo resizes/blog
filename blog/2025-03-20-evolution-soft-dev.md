@@ -10,6 +10,8 @@ The term '*vibe coding*' has been gaining a lot of attention lately. It has been
 
 For those unfamiliar with it, *vibe coding* is a way of building applications where developers or even non-technical users describe what they want in plain language, and **AI generates the code automatically**. Instead of manually writing code line by line, **users delegate all the responsibility of coding** by interacting with an LLM (like ChatGPT, Claude, or Sonnet) and only refining the output as needed.
 
+<!--truncate-->
+
 An increasing number of tools are making it possible for anyone to build applications **without coding or technical expertise**. These platforms, often built on top of LLMs, enable individuals to develop digital solutions while reducing time and development costs.
 
 This is changing the **software development paradigm**, don’t you think?
