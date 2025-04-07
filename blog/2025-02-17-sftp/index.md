@@ -241,7 +241,7 @@ With this, a folder with the Helm Chart dependencies called `charts` and a `Char
 A folder called **templates** is also needed. There will be created both `externalsecret.yaml` and `secretstore.yaml`. This will allow us to manage the secrets we have previously stored in our **AWS Secret Manager**.
 
 
-## postgresql
+### postgresql
 It's necessary to configure our postgres. To do so, access to the Postgres database is done through the `sftpgo-postgresql` secret.
 
 ```sh
