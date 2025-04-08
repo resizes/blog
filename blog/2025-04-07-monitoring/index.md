@@ -6,7 +6,7 @@ tags: [DevOps, PlatformEngineering, Kubernetes, Monitoring, Prometheus, Loki, Al
 image: /img/2025-03-15-monitoring/monitoring-stack.png
 ---
 
-Monitoring a Kubernetes cluster is essential to know what is going on or to be able to detect if something is wrong in time There are multiple tools available for this purpose, but in this implementation, we'll use **Metrics Server**, **Alloy**, **Loki**, **Kube Prometheus Stack**, and **Alertmanager**.
+Monitoring a Kubernetes cluster is essential to know what is going on or to be able to detect if something is wrong in time. There are multiple tools available for this purpose, but in this implementation, we'll use **Metrics Server**, **Alloy**, **Loki**, **Kube Prometheus Stack**, and **Alertmanager**.
 
 This setup will be deployed on an EKS cluster, with all configurations managed through Terraform and Helm charts.
 
@@ -14,12 +14,13 @@ This setup will be deployed on an EKS cluster, with all configurations managed t
 
 ## Infrastructure Overview
 
-The monitoring stack consists of several components:
+The monitoring stack consists of several components such as:
 
 - **Metrics Server**: For basic resource metrics collection
 - **Alloy**: To collect and forward metrics and logs
 - **Loki**: For log storage and querying
-- **Kube Prometheus Stack**: Comprehensive monitoring solution
+- **Prometheus Operator**: To automatically manage Prometheus and Alertmanager configurations in Kubernetes.
+- **Grafana**: For visualisation of metrics and logs (integrated with Prometheus and Loki).
 - **Alertmanager**: For handling alerts and notifications
 
 All components will be deployed using Helm charts with configurations stored in our platform repository.
@@ -622,7 +623,7 @@ Next, navigate to the `values.yaml` file of the kube-prometheus-stack (the one w
                   values:
                   - eu-west-1c
 ```
-There are still a lot of configurations or things to customize depending on your situation ... but with all this you would have your kubernetes cluster monitored in a very easy way!
+With all this, we would have our monitoring stack connected to a Discord channel, so you can be more vigilant in case anything happens, improving the visibility and reliability of your cluster.
 
 ## Resources
 
