@@ -202,13 +202,13 @@ loki.write "loki" {
 
 ## Loki
 
-**Loki** is a log storage and query system that can be integrated with **Grafana** or **Prometheus**.
+**Loki** is a log storage and query system that can be integrated with **Grafana**.
 To get started, it is necessary to create a bucket where all the collected logs will be stored :
 
 
 
 loki.tf :
-```yaml
+```hcl
 module "loki_oidc_role" {
   source    = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
   version   = "~> 5.0"
@@ -545,7 +545,7 @@ After locating our **webhook**, go to your cluster and create a new secret to st
 
 
 
-```hcl
+```sh
 kubectl -n monitoring create secret generic discord-webhook \ --from-literal=url='https://discord.com/api/webhooks/...' #replace with your webhook URL
 ```
 
@@ -554,7 +554,7 @@ You can verify that your secret has been created correctly with the following co
 
 
 
-```hcl
+```sh
 kubectl get secrets -n monitoring
 ```
 
@@ -629,3 +629,6 @@ With all this, we would have our monitoring stack connected to a Discord channel
 
 [Loki Documentation](https://grafana.com/docs/loki/latest/)
 [Alloy Documentation](https://grafana.com/docs/alloy/latest/)
+[Alert Manager Documentation](https://prometheus.io/docs/alerting/latest/alertmanager/)
+[Prometheus Documentation](https://prometheus.io/)
+[Prometheus Operator Documentation](https://prometheus-operator.dev/)
