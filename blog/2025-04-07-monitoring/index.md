@@ -3,7 +3,7 @@ slug: monitoring-kubernetes-cluster
 title: Monitor your EKS without dying in the effort!
 authors: maria
 tags: [DevOps, PlatformEngineering, Kubernetes, Monitoring, Prometheus, Loki, AlertManager]
-image: /img/2025-03-15-monitoring/monitoring-stack.png
+image: /img/2025-04-09-monitoring/kubernetes-monitoring.png
 ---
 
 Monitoring a Kubernetes cluster is essential to know what is going on or to be able to detect if something is wrong in time. There are multiple tools available for this purpose, but in this implementation, we'll use **Metrics Server**, **Alloy**, **Loki**, **Kube Prometheus Stack**, and **Alertmanager**.
