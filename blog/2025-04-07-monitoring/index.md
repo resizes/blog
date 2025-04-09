@@ -627,8 +627,8 @@ With all this, we would have our monitoring stack connected to a Discord channel
 
 ## Resources
 
-[Loki Documentation](https://grafana.com/docs/loki/latest/)
-[Alloy Documentation](https://grafana.com/docs/alloy/latest/)
-[Alert Manager Documentation](https://prometheus.io/docs/alerting/latest/alertmanager/)
-[Prometheus Documentation](https://prometheus.io/)
-[Prometheus Operator Documentation](https://prometheus-operator.dev/)
+- [Loki Documentation](https://grafana.com/docs/loki/latest/)
+- [Alloy Documentation](https://grafana.com/docs/alloy/latest/)
+- [Alert Manager Documentation](https://prometheus.io/docs/alerting/latest/alertmanager/)
+- [Prometheus Documentation](https://prometheus.io/)
+- [Prometheus Operator Documentation](https://prometheus-operator.dev/)
