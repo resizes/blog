@@ -7,86 +7,100 @@ image:
 ---
 
 ## How it started
-*Explicar brevemente la infra original de Soty (despliegue de recursos con ploi, mongo en scalegrid, ...)*
 At first, our client had its software deployed mostly in Digital Ocean with some resources in ploi.io and ScaleGrid.
 
 
 ## What was the goal
-*Explicar brevemente qué metas teníamos para el proyecto y porqué*
- - *migrar a kubernetes pq proporciona escqlado horizontal automático, optimiza las BBDD reduciendo el costo de nube y CO2...*
- - *enseñar mejores practicas de desarrollo sw*
- - *...*
+At the beginning, our goal was clear: we had to improve their platform, thereby offering them a better software development experience while reducing associated costs.
 
-Al empezar, nuestro objetivo era claro: teniamos que mejorar su plataforma, y así ofrecerles una mejor experiencia en el desarrollo del software a la vez que se reducen los costes asociados.
-
-Para ello, se estandarizaron sus entornos de infraestructura con EKS, ya que proporciona un escalado horizontal automático, lo que permite abaratar los gastos y el consumo de CO2 al solo aprovisionar los recursos necesarios.
-En cada entorno se usa Helm y ArgoCD para optimizar los despliegues de distintas aplicaciones, como puede ser la aplicación web y una MongoDB.
-Además, se adoptaron GitOps con el fin de automatizar el desarrollo del software, garantizando despliegues rápidos y fiables de aplicaciones y servicios en CICD.
-
+To achieve this, their infrastructure environments were standardized with EKS, as it provides automatic horizontal scaling, which helps lower expenses and CO2 consumption by provisioning only the necessary resources.
+In each environment, Helm and ArgoCD are used to optimize the deployment of various applications, such as the web application and a MongoDB database.
+Additionally, GitOps was adopted to automate software development, ensuring fast and reliable deployments of applications and services in CI/CD.
 
 ## How was it archieved?
-*Un subapartado para cada punto de los anteriores en el que se explique técnicamente qué cosas contribuyeron a ese punto se hicieron y luego describirlas*
-- *optimizar las BBDD: despliegue de mongo y mysql en k8s explicando el proceso y las decisiones arquitectónicas elegidas*
-
 ### Kubernetes clusters
-Están desplegados en la nube, gracias al servicio de AWS EKS, y orquesta gran parte de los servicios de nuestro cliente.
-Además, también aloja otros servicios que forman parte de nuestra plataforma:
-- **Stack de observabilidad y alertas** para ofrecer al cliente visibilidad sobre las aplicaciones desplegadas y sus recursos correspondientes.
-- **Herramientas de CICD** para optimizar el despliegue de aplicaciones.
-- **Balanceadores de carga** para distribuir las peticiones que lleguen a un servicio de manera equitativa entre distintas réplicas.
-- **External secrets manager** para poder extraer información sensible del código en forma de secretos que pueden ser manejados desde el servicio que ofrece AWS.
+They are deployed in the cloud, thanks to the AWS EKS service, which orchestrates a large portion of our client's services.
+
+Additionally, it also hosts other services that are part of our platform:
+- **Observability and alerting stack** to provide the client with visibility into deployed applications and their corresponding resources.
+- **CI/CD tools** to optimize application deployment.
+- **Load balancers** to distribute incoming requests evenly across different replicas.
+- **External Secrets Manager** to extract sensitive information from the code in the form of secrets, which can be managed via AWS's service.
 
 ### Custom image for their web application
-La aplicación del cliente está desarrollada en PHP, por lo que se creó un Helm personalizado para poder manejar de manera automática los despliegues con ArgoCD.
-Posteriormente, se optimizó la imagen del sistema operativo que se usaba, creando una imagen propia que ya tenia descargados aquellos paquetes necesarios para que la aplicación funcione:
-Con ello, se consiguió reducir el tiempo para buildear la imagen desde los 8 minutos a 2.
-
-Además, la aplicación se decidió por correr en nodos con arquitectura ARM, que es la arquitectura que usaba de antes el cliente.
-
+The client's application is developed in PHP, so a custom Helm chart was created to automate deployments using ArgoCD.
+Later, the operating system image was optimized by creating a custom image that already included all the necessary pre-downloaded packages for the application to run.
+This reduced the image build time from 8 minutes down to just 2.
+Additionally, the application was configured to run on ARM-based nodes, matching the client's existing architecture.
 
 ### Databases migration and optimization
-La aplicación del cliente usa una base de datos MongoDB y una MySQL junto con una Redis. 
-Todos estos recursos se migraron a los nuevos entornos:
+The client's application uses a MongoDB database, a MySQL database, and a Redis instance.
+All of these resources were migrated to the new environments:
 #### MongoDB
-Está desplegada en el clúster a través de Helm en una arquitectura con 3 réplicas para asegurar su disponibilidad.
+The database is deployed in the cluster using Helm with a 3-replica architecture to ensure high availability.
 
-Inicialmente, se trató de usar una versión en ARM de la MongoDB para reutilizar los nodos existentes y reducir el coste de la infraestructura.
-Sin embargo, debido al poco soporte de imágenes de MongoDB compatibles con arquitecturas ARM, se optó por usar arquitectura AMD en cambio.
+Initially, we attempted to use an ARM-compatible version of MongoDB to leverage existing nodes and reduce infrastructure costs.
+However, due to limited support for ARM-optimized MongoDB images, we ultimately switched to an AMD-based architecture instead.
+This decision balanced compatibility with stability while still maintaining efficient resource utilization in the cluster.
 
-La base de datos de origen estaba en la versión v5.x por lo que además de hacer una migración, se decidió por hacer un upgrade a una versión con soporte y que se pueda mantener actualizada frente a vulnerabilidades.
-Se pensó originalmente en poner la versión más reciente (v8.x), pero resultó imposible hacer la migración a esta versión puesto que la BBDD de origen usa colecciones de tipo *timeseries* que no mantienen consistencia en el esquema de sus datos.
-Se trató de sortear este problema por varias maneras:
-- Usando MongoTools en una versión superior a v100.4 (v100.12.0) ya que según [lo escrito por un empleado de MongoDB](https://www.mongodb.com/community/forums/t/database-tools-100-4-0-released/115727), permite la migración de *timeseries*
-- Creando las colecciones primero, activar la flag ``timeseriesBucketsMayHaveMixedSchemaData`` y luego importar los datos.
-- Modificando los metadatos de creación de la colección para que añadiera la flag activada.
+The original database was running on version 5.x, so in addition to migration, we decided to upgrade to a supported version that could be kept updated against vulnerabilities.
+Initially, we considered moving to the latest version (8.x), but this proved impossible because the source database uses timeseries collections, which do not maintain strict schema consistency for their data.
+We attempted several workarounds to resolve this issue:
+- Using MongoTools v100.12.0+ Based on a [MongoDB employee’s post](https://www.mongodb.com/community/forums/t/database-tools-100-4-0-released/115727), this version supposedly supports timeseries migration.
+- Pre-creating collections with ``timeseriesBucketsMayHaveMixedSchemaData`` flag – We tried enabling this flag before importing data to bypass schema conflicts
+- Modifying collection metadata – We attempted to manually adjust creation metadata to include the flag.
 
-Finalmente, se decidió por migrar a la versión v7.x, que todavía posee soporte y en un futuro actualizar a la v8.x y activar manualmente dicha flag.
+Unfortunately, none of these approaches fully resolved the compatibility issues, forcing us to settle on an intermediate supported version (7.x) and schedule an upgrade in the future.
 
 #### MySQL 
-Se usa el servicio de AWS Aurora y RDS, ya que nos permite tener una implementación rápida a través de código con Terraform.
-Originalmente, el proceso de migración pensaba hacerse con AWS DMS pero presenta una serie de inconvenientes que resultan complicados de sortear:
-- **DMS no es capaz de migrar objetos secundarios (FKs y restricciones de cascada):** Ya que DMS funciona replicando cambios en logs durante el proceso de replicación, pero los motores de BBDD no guardan logs de objetos secundarios. Hasta 2020 había una flag (``HandleCascadeConstraints``) que, aunque no documentada, permitía evitar esta restricción. Al estar deprecada y no disponible actualmente, la unica solución es modificar el DDL de la base de datos en más de las 400 ocurrencias que hay de FKs y restricciones de cascada.
-- **Necesidad de desabilitar FKs durante la migración:** Lo que obliga a parar la aplicación.
-- **Problemas de timeouts en la base de datos de origen:** Que se resolviendo importando los recursos necesarios en Terraform a código y modificando sus valores, ya que al ser *selfmanaged*, no hay otra forma de editar estos valores.
+We use AWS Aurora and RDS because they enable rapid infrastructure-as-code deployment via Terraform.
+Originally, the migration was planned with AWS DMS, but several critical limitations made it impractical:
+
+- **DMS cannot migrate secondary objects (FKs and cascade constraints):**
+    - DMS replicates changes via database logs, but database engines do not log secondary object dependencies.
+    - Until 2020, an undocumented flag (HandleCascadeConstraints) could bypass this, but it’s now deprecated.
+    - The only workaround is manually modifying the DDL in 400+ instances of FKs and cascade constraints.
+
+- **Requirement to disable FKs during migration:**
+    - Forces application downtime.
+
+- **Source database timeout issues:**
+    - Resolved by importing self-managed resources into Terraform and adjusting their parameters directly (no alternative for non-managed databases).
+
+
 
 
 #### Redis
-De manera similar a MySQL, nos decantamos por usar Terraform y el servicio de ElastiCache.
+Similarly to MySQL, we opted to use Terraform and ElastiCache for deployment and management.
 
-### Self-hosted action runners
-Creación de runners propios para correr GitHub Actions, más eficientes y baratos que los ofrecidos de por GitHub.
-
+### Self-Hosted GitHub Action Runners
+We implemented custom self-hosted runners to execute GitHub Actions workflows. This approach proved:
+- More efficient – Reduced latency and improved performance compared to GitHub's hosted runners.
+- Cost-effective – Lowered operational expenses by avoiding GitHub's per-minute billing.
 
 ## Other improvements:
-*Explicar brevemente otras mejoras que se llevaron a cabo (creación de imágenes de su aplicación personalizadas para despliegues más eficientes, finops,...)*
+A series of improvements were implemented to enhance the system’s efficiency, security, and reliability:
+- **FinOps:**
+    - Conducted infrastructure cost analysis across multiple usage cycles to right-size resources and reduce expenses.
 
-También se hicieron un conjunto de tareas que mejoraron el sistema, de alguna u otra forma:
-- **FinOps:** Estudio y análisis de la infraestructura a lo largo de varios momentos con los que poder ajustar los recursos y así reducir gastos.
-- **Secretos:** Se extrajeron datos sensibles presentes en el código del cliente a secretos en AWS, ofreciendo así una mayor seguridad de su aplicación.
-- **Sistema de colas:** Migración de un sistema de colas desde DigitalOcean a AWS, manejado por Terraform. También se añadieron neuvas colas, DLQs, a las originales donde se redirigirán aquellos mensajes que no sean extraidos en un tiempo. Esto ayuda al cliente a debuggear y a tener mayor control de los problemas que puedan existir.
-- **Migración de buckets S3:** Configuración y migración de un bucket por entorno, desde DO hasta AWS con rutas de acceso restringido y rutas de acceso público desde el Internet.
-- **QA:** Testeo de la aplicación a lo largo de distintos momentos.
+- **Secrets Management:**
+    - Migrated hardcoded sensitive data to AWS Secrets Manager, eliminating exposure risks in the client’s codebase.
 
+- **Queue System Upgrade:**
+    - Migrated from DigitalOcean to AWS-managed queues (via Terraform).
+    - Added Dead-Letter Queues (DLQs) to capture/troubleshoot failed messages, improving debuggability and error control.
+
+- **S3 Bucket Migration:**
+    - Migrated and configured per-environment S3 buckets (DigitalOcean → AWS).
+    - Implemented restricted-access paths (private) and public-facing endpoints (Internet-accessible) as needed.
+
+- **QA & Testing:**
+    - Performed continuous application testing at critical stages to ensure stability.
+
+- **Why This Matters:**
+    - Security: Secrets abstraction + restricted S3 paths minimize attack surfaces.
+    - Cost Control: FinOps ensures no overprovisioning.
+    - Resilience: DLQs prevent message loss and simplify failure analysis.
 
 
 
