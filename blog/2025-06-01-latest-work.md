@@ -17,6 +17,7 @@ To achieve this, their infrastructure environments were standardized with EKS, a
 In each environment, Helm and ArgoCD are used to optimize the deployment of various applications, such as the web application and a MongoDB database.
 Additionally, GitOps was adopted to automate software development, ensuring fast and reliable deployments of applications and services in CI/CD.
 
+
 ## How was it archieved?
 ### Kubernetes clusters
 They are deployed in the cloud, thanks to the AWS EKS service, which orchestrates a large portion of our client's services.
@@ -67,16 +68,19 @@ Originally, the migration was planned with AWS DMS, but several critical limitat
 - **Source database timeout issues:**
     - Resolved by importing self-managed resources into Terraform and adjusting their parameters directly (no alternative for non-managed databases).
 
-
-
-
 #### Redis
 Similarly to MySQL, we opted to use Terraform and ElastiCache for deployment and management.
 
-### Self-Hosted GitHub Action Runners
+### Self-Hosted Runners
+A self-hosted runner's task is to run CICD workflows within itself, detaching the pipeline from GitHub Actions, for example.
+They provide a great customization of the execution environment while offering us a great control of everything happening underneath. 
+We use Kubernetes as the infrastructure on where to deploy the runners due to its adaptability and scalability along as Actions Runner Controller, which manages several runners concurrently.
+As any other application deployed in the cluster, Helm Charts and ArgoCD are used for Continuous Delivery.
+We also use AWS Secrets Manager and custom Docker Images to further improve their performance and capabilities.
 We implemented custom self-hosted runners to execute GitHub Actions workflows. This approach proved:
 - More efficient – Reduced latency and improved performance compared to GitHub's hosted runners.
 - Cost-effective – Lowered operational expenses by avoiding GitHub's per-minute billing.
+
 
 ## Other improvements:
 A series of improvements were implemented to enhance the system’s efficiency, security, and reliability:
@@ -101,13 +105,3 @@ A series of improvements were implemented to enhance the system’s efficiency, 
     - Security: Secrets abstraction + restricted S3 paths minimize attack surfaces.
     - Cost Control: FinOps ensures no overprovisioning.
     - Resilience: DLQs prevent message loss and simplify failure analysis.
-
-
-
-
-
-
-
-
-
-
