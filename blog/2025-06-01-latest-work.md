@@ -7,7 +7,8 @@ image:
 ---
 
 ## How it started
-At first, we were challenged: our client had its software deployed in cloud, but wanted to improve their software lifecycle as it was unefficient their previous way to deploy new software. 
+At first, a challenged was proposed by Be Energy Part S.L. (SotySolar): they are one of the greatest companies regarding solar panels instalations and other energetic sources. 
+They have their software deployed in cloud, but wanted to improve their software lifecycle as it was unefficient their previous way to deploy new software. 
 
 ## What was the goal
 And so, it was clear what we wanted to archieve: we were to build a new Internal Development Platform (IDP) which make us leaders of the field for solutions that enhance business' efficiency.
@@ -16,6 +17,54 @@ This product would offer future clients a better software development experience
 To achieve this, infrastructure environments are standardized with Amazon EKS, as it provides automatic horizontal scaling. This helps to lower expenses and CO2 consumption by provisioning only the necessary resources at each moment.
 For each environment, Helm and ArgoCD are used to optimize the deployment of various applications, such as the web application and a MongoDB database.
 Additionally, GitOps are adopted to automate software development, ensuring fast and reliable deployments of applications and services in CI/CD.
+
+## Explaining Our Solution
+### Cloud Provider Migration: From DigitalOcean to Amazon Web Services (AWS)
+As AWS partners, we chose to migrate the current infrastructure from DigitalOcean to AWS due to better pricing and AWS's strong commitment to sustainability. 
+Since 2023, AWS has matched its energy usage with renewable sources and is actively pursuing greener solutions, aiming for net-zero carbon emissions by 2040 and to become water-positive by 2030.
+
+
+### Infrastructure Management: From VMs to Kubernetes
+Virtual Machines (VMs) offer simplicity and are easier to operate, modify, and use for rapid prototyping. 
+They’re accessible for smaller teams and help deliver quick initial deployments. 
+However, they rely heavily on manual management and don't scale efficiently, which was a problem in SotySolar's infrastructure.
+
+We propose to use Kubernetes, a tool that automates container orchestration and provides a robust ecosystem with self-healing, rolling updates, and simplified horizontal scaling. 
+It offers greater customization, enabling features like cluster observability, resource monitoring, and alerting. 
+While Kubernetes has a steeper learning curve, it supports Infrastructure as Code (IaC), allowing declarative deployments and GitOps workflows that improve reliability and automation.
+
+
+### GitOps and the importance of Infrastructure as Code (IaC)
+GitOps is a methodology for managing infrastructure using IaC tools (like YAML, Terraform, and Helm) with Git as the single source of truth. 
+It brings agility, automation, and consistency to cloud environments by allowing all changes to go through version-controlled Git workflows.
+This enables streamlined CI/CD pipelines, where new deployments can be triggered automatically when a pull request is merged. 
+It also ensures that all environments remain consistent, reducing configuration drift and simplifying rollbacks.
+
+Without IaC, infrastructure changes are often undocumented, leading to technical debt and inconsistent environments. 
+Manual setups make disaster recovery slower and more error-prone, as there’s no clear record of the intended system state. 
+Additionally, it becomes harder to maintain visibility and control over infrastructure, as well as scale it, especially as systems grow in complexity.
+
+
+### Upgrading older software
+Software components, especially databases, are often left on outdated versions due to concerns about downtime, dependency breakage, or lack of automated deployment processes. 
+In many environments, updates are delayed simply because the system is stable and changing it feels risky or time-consuming, which adds up technical debt and engraves the problem.
+
+However, keeping old versions introduces several issues: 
+They often contain known security vulnerabilities, may lack critical performance improvements, and can become incompatible with newer services or libraries. 
+Over time, vendors may drop support entirely, making future updates more complex and leaving systems exposed or providing little to no help in future situations.
+
+This can be avoided by integrating version management into regular development workflows. 
+Using tools like Terraform, Helm, or Docker, updates can be defined and tested as part of infrastructure code. 
+Combined with CI/CD pipelines and staging environments, we allow to roll out updates safely in minor environments, detect issues early, and reduce the risk of problems in production.
+
+
+### FinOps and costs management
+FinOps (short for Financial Operations) is a practice that helps organizations manage and optimize their cloud spending by combining finance, engineering, and operations teams.
+It focuses on creating visibility, accountability, and control over cloud costs. This enables teams to make informed decisions about their current infrastructure.
+
+We believe adopting FinOps early is important because cloud costs can grow rapidly and unpredictably, especially as systems scale. 
+Also, without any proper cost tracking, it becomes hard to properly provision resources. 
+FinOps leads to better financial planning and more sustainable cloud practices from the start of the project.
 
 
 ## How was it archieved?
@@ -46,27 +95,12 @@ This decision balanced compatibility with stability while still maintaining effi
 
 The original database was running on version 5.x, so in addition to migration, we decided to upgrade to a supported version that could be kept updated against vulnerabilities.
 Initially, we considered moving to the latest version (8.x), but this proved impossible because the source database uses timeseries collections, which do not maintain strict schema consistency for their data.
-We attempted several workarounds to resolve this issue:
-- Using MongoTools v100.12.0+ Based on a [MongoDB employee’s post](https://www.mongodb.com/community/forums/t/database-tools-100-4-0-released/115727), this version supposedly supports timeseries migration.
-- Pre-creating collections with ``timeseriesBucketsMayHaveMixedSchemaData`` flag – We tried enabling this flag before importing data to bypass schema conflicts
-- Modifying collection metadata – We attempted to manually adjust creation metadata to include the flag.
-
-Unfortunately, none of these approaches fully resolved the compatibility issues, forcing us to settle on an intermediate supported version (7.x) and schedule an upgrade in the future.
+We attempted several workarounds to resolve this issue. Unfortunately, none of these approaches fully resolved the compatibility issues, forcing us to settle on an intermediate supported version (7.x) and schedule an upgrade in the future.
 
 #### MySQL 
 We use AWS Aurora and RDS because they enable rapid infrastructure-as-code deployment via Terraform.
-Originally, the migration was planned with AWS DMS, but several critical limitations made it impractical:
-
-- **DMS cannot migrate secondary objects (FKs and cascade constraints):**
-    - DMS replicates changes via database logs, but database engines do not log secondary object dependencies.
-    - Until 2020, an undocumented flag (HandleCascadeConstraints) could bypass this, but it’s now deprecated.
-    - The only workaround is manually modifying the DDL in 400+ instances of FKs and cascade constraints.
-
-- **Requirement to disable FKs during migration:**
-    - Forces application downtime.
-
-- **Source database timeout issues:**
-    - Resolved by importing self-managed resources into Terraform and adjusting their parameters directly (no alternative for non-managed databases).
+Originally, the migration was planned with AWS DMS, but several critical limitations made it impractical.
+Finally, we decided to be ourselves the ones to do the migration task by hand.
 
 #### Redis
 Similarly to MySQL, we opted to use Terraform and ElastiCache for deployment and management.
@@ -84,9 +118,6 @@ We implemented custom self-hosted runners to execute GitHub Actions workflows. T
 
 ## Other improvements:
 A series of improvements were implemented to enhance the system’s efficiency, security, and reliability:
-- **FinOps:**
-    - Conducted infrastructure cost analysis across multiple usage cycles to right-size resources and reduce expenses.
-
 - **Secrets Management:**
     - Migrated hardcoded sensitive data to AWS Secrets Manager, eliminating exposure risks in the client’s codebase.
 
@@ -103,5 +134,4 @@ A series of improvements were implemented to enhance the system’s efficiency, 
 
 - **Why This Matters:**
     - Security: Secrets abstraction + restricted S3 paths minimize attack surfaces.
-    - Cost Control: FinOps ensures no overprovisioning.
     - Resilience: DLQs prevent message loss and simplify failure analysis.
