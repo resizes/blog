@@ -7,15 +7,15 @@ image:
 ---
 
 ## How it started
-At first, we were challenged: our client had its software deployed in cloud, but wanted to improve their software lifecycle. 
+At first, we were challenged: our client had its software deployed in cloud, but wanted to improve their software lifecycle as it was unefficient their previous way to deploy new software. 
 
 ## What was the goal
 And so, it was clear what we wanted to archieve: we were to build a new Internal Development Platform (IDP) which make us leaders of the field for solutions that enhance business' efficiency.
 This product would offer future clients a better software development experience while reducing their cloud-associated costs and decreasing the CO2 footprint and energy usage.
 
-To achieve this, infrastructure environments were standardized with EKS, as it provides automatic horizontal scaling, which helps lower expenses and CO2 consumption by provisioning only the necessary resources.
+To achieve this, infrastructure environments are standardized with Amazon EKS, as it provides automatic horizontal scaling. This helps to lower expenses and CO2 consumption by provisioning only the necessary resources at each moment.
 For each environment, Helm and ArgoCD are used to optimize the deployment of various applications, such as the web application and a MongoDB database.
-Additionally, GitOps was adopted to automate software development, ensuring fast and reliable deployments of applications and services in CI/CD.
+Additionally, GitOps are adopted to automate software development, ensuring fast and reliable deployments of applications and services in CI/CD.
 
 
 ## How was it archieved?
