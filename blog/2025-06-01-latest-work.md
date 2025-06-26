@@ -6,15 +6,18 @@ tags: [Kubernetes, Infrastructure, MySQL, MongoDB, AWS, CICD, GitOps]
 image: 
 ---
 
-## How it started
-At first, a challenged was proposed by Be Energy Part S.L. (SotySolar): they are one of the greatest companies regarding solar panels instalations and other energetic sources. 
-They have their software deployed in cloud, but wanted to improve their software lifecycle as it was unefficient their previous way to deploy new software. 
+## Case: SotySolar
+We partnered with Be Energy Part S.L. (operating under the brand Sotysolar), a leading force in the solar panel installation sector across Spain and Portugal and green energetic solutions. 
+With over 12,000 panels installed and a growing presence in the renewable energy market, Sotysolar continues to push the boundaries of sustainable innovation.
+
+Our collaboration began when Sotysolar approached us to streamline and modernize their software development lifecycle. 
+Their goal was to adopt a more agile and efficient approach to cloud-based software deployment, enabling them to scale faster, reduce downtime, and improve delivery speed.
 
 ## What was the goal
-And so, it was clear what we wanted to archieve: we were to build a new Internal Development Platform (IDP) which make us leaders of the field for solutions that enhance business' efficiency.
-This product would offer future clients a better software development experience while reducing their cloud-associated costs and decreasing the CO2 footprint and energy usage.
+Our objective was to build a new Internal Development Platform which would allow to adopt leading practices to enhance business efficiency.
+This product would offer SotySolar a better software development experience and allow to scale their services effortlessly while reducing their cloud-associated costs and decreasing the CO2 footprint and energy usage. 
 
-To achieve this, infrastructure environments are standardized with Amazon EKS, as it provides automatic horizontal scaling. This helps to lower expenses and CO2 consumption by provisioning only the necessary resources at each moment.
+The solution uses Amazon EKS for seamless autoscaling, to help reduce expenses and CO2 consumption by provisioning only the necessary resources at each moment.
 For each environment, Helm and ArgoCD are used to optimize the deployment of various applications, such as the web application and a MongoDB database.
 Additionally, GitOps are adopted to automate software development, ensuring fast and reliable deployments of applications and services in CI/CD.
 
@@ -22,6 +25,7 @@ Additionally, GitOps are adopted to automate software development, ensuring fast
 ### Cloud Provider Migration: From DigitalOcean to Amazon Web Services (AWS)
 As AWS partners, we chose to migrate the current infrastructure from DigitalOcean to AWS due to better pricing and AWS's strong commitment to sustainability. 
 Since 2023, AWS has matched its energy usage with renewable sources and is actively pursuing greener solutions, aiming for net-zero carbon emissions by 2040 and to become water-positive by 2030.
+We strongly believe that these objectives align with Sotysolar's goals as a renewable energy company.
 
 
 ### Infrastructure Management: From VMs to Kubernetes
