@@ -16,9 +16,6 @@ image: img/2025-06-27-sotysolar-success-story/thumbnail.jpg
 - **🌱 40% Reduction** in carbon footprint through efficient resource usage
 - **📈 3x Increase** in deployment frequency
 
-> *"The partnership with [Resizes Platform](https://resiz.es) transformed our development velocity and operational efficiency. We can now deploy with confidence and scale seamlessly to support our growing solar installation business across Spain and Portugal."* 
-> 
-> **— Eusebio, CTO, [Be Energy Part S.L](https://sotysolar.es)**
 
 # The Challenge
 With over 12,000 solar panels installed across Spain and Portugal, [SotySolar](https://sotysolar.es) was ready to scale their operations while maintaining their commitment to sustainability. Their existing infrastructure, based on traditional virtual machines and manual processes, was becoming a bottleneck for growth.
