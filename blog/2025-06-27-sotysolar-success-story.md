@@ -6,7 +6,7 @@ tags: [Success Story, Software Enhancement, Kubernetes Adoption, Cloud FinOps, D
 image: img/2025-06-27-sotysolar-success-story/thumbnail.jpg
 ---
 
-[Energy Part S.L](https://sotysolar.es) leads the solar panel installation sector in Europe with their innovative green solutions. The company modernized their technology stack through an Internal Developer Platform developed in collaboration with [Resizes Platform](https://resiz.es). This strategic partnership delivered significant improvements across multiple dimensions:
+[Be Energy Part S.L](https://sotysolar.es) leads the solar panel installation sector in Europe with their innovative green solutions. The company modernized their technology stack through an Internal Developer Platform developed in collaboration with [Resizes Platform](https://resiz.es). This strategic partnership delivered significant improvements across multiple dimensions:
 
 ## **Key Results at a Glance**
 - **🚀 2+ Hours Saved** per deployment cycle (75% reduction)
@@ -18,7 +18,7 @@ image: img/2025-06-27-sotysolar-success-story/thumbnail.jpg
 
 > *"The partnership with [Resizes Platform](https://resiz.es) transformed our development velocity and operational efficiency. We can now deploy with confidence and scale seamlessly to support our growing solar installation business across Spain and Portugal."* 
 > 
-> **— Eusebio, CTO, [Energy Part S.L](https://sotysolar.es)**
+> **— Eusebio, CTO, [Be Energy Part S.L](https://sotysolar.es)**
 
 # The Challenge
 With over 12,000 solar panels installed across Spain and Portugal, [SotySolar](https://sotysolar.es) was ready to scale their operations while maintaining their commitment to sustainability. Their existing infrastructure, based on traditional virtual machines and manual processes, was becoming a bottleneck for growth.
@@ -86,9 +86,9 @@ Database performance optimization involved upgrading from MongoDB 5.x to 7.x, wh
 The 3-replica architecture provided high availability and enabled read scaling that could dramatically improve application performance for read-heavy workloads.
 
 # Technical Enhancements and Security: Building a Fortress of Trust
-The security transformation of [SotySolar](https://sotysolar.es)'s infrastructure began with the migration to AWS Secrets Manager. Every hardcoded credential was carefully extracted from the codebase and moved to the centralized secrets management system. This process ensured that sensitive data was safely stored and automatically injected at runtime, with automated rotation capabilities providing additional security.
+The security transformation of [SotySolar](https://sotysolar.es)'s infrastructure began with the migration to AWS Secrets Manager. Every hardcoded credential was extracted from the codebase and moved to the centralized secrets management system. This process ensured that sensitive data was safely stored and automatically injected at runtime, with automated rotation capabilities providing additional security.
 
-The network security architecture implemented defense in depth, where each layer provided protection against different types of threats. The migration to private subnets meant that [SotySolar](https://sotysolar.es)'s most critical components – their databases and application servers – became invisible to the outside world, accessible only through carefully controlled pathways.
+The network security architecture implemented defense in depth, where each layer provided protection against different types of threats. The migration to private subnets meant that [SotySolar](https://sotysolar.es)'s most critical components – their databases and application servers – became invisible to the outside world, accessible only through controlled pathways.
 
 The implementation of security groups as programmable firewalls allowed [SotySolar](https://sotysolar.es) to define their security policies as code, version-controlled and peer-reviewed just like their application code. This approach eliminated the common problem of security configurations drifting over time or being inconsistently applied across environments.
 
@@ -141,7 +141,7 @@ The implementation of chaos engineering took this confidence to the next level. 
 - **Green Technology Leadership**: Modern infrastructure supports [SotySolar](https://sotysolar.es)'s position as an environmental technology leader
 
 # Looking Forward
-This collaboration between [Energy Part S.L](https://sotysolar.es) and [Resizes Platform](https://resiz.es) demonstrates how modern cloud-native technologies can drive both business efficiency and environmental responsibility. The Internal Developer Platform provides [SotySolar](https://sotysolar.es) with a robust foundation for continued growth while maintaining their commitment to sustainable practices.
+This collaboration between [Be Energy Part S.L](https://sotysolar.es) and [Resizes Platform](https://resiz.es) demonstrates how modern cloud-native technologies can drive both business efficiency and environmental responsibility. The Internal Developer Platform provides [SotySolar](https://sotysolar.es) with a robust foundation for continued growth while maintaining their commitment to sustainable practices.
 
 The success of this partnership showcases the power of combining technical expertise with aligned values – proving that efficient technology solutions and environmental stewardship can work hand in hand.
 
@@ -157,3 +157,8 @@ The success of this partnership showcases the power of combining technical exper
 
 **📞 [Schedule a Technical Consultation](https://calendar.app.google/AYCwMMtZH58pyZPn7)** | **💬 [Join Our Discord Community](https://discord.gg/HjvRtMvT)**
 >
+
+
+El proyecto "Migración Tecnológica de Be Energy Part S.L. para la implantación de Resizes Platform" se ha desarrollado por la empresa Resizes Platform Engineering SL, cofinanciado por el Ayuntamiento de Gijón a través de Gijón Impulsa en el marco del programa de Incentivos Impulsa - Subvenciones al Emprendimiento e Innovación, Línea II. Innovación Abierta.
+
+![Gijón Impulsa Logo](./img/2025-06-27-sotysolar-success-story/gijon-impulsa-logo.png)
