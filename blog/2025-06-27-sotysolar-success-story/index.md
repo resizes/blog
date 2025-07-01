@@ -159,4 +159,4 @@ The success of this partnership showcases the power of combining technical exper
 
 El proyecto "Migración Tecnológica de Be Energy Part S.L. para la implantación de Resizes Platform" se ha desarrollado por la empresa Resizes Platform Engineering SL, cofinanciado por el Ayuntamiento de Gijón a través de Gijón Impulsa en el marco del programa de Incentivos Impulsa - Subvenciones al Emprendimiento e Innovación, Línea II. Innovación Abierta.
 
-![Gijón Impulsa Logo](./img/2025-06-27-sotysolar-success-story/gijon-impulsa-logo.webp)
+![Gijón Impulsa Logo](gijon-impulsa.png)
