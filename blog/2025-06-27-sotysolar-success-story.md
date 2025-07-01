@@ -1,7 +1,7 @@
 ---
 slug: success-story-sotysolar
 title: Success Story - Software Enhancement in a Green Energy Solutions Company
-authors: Resizes
+authors: rober
 tags: [Success Story, Software Enhancement, Kubernetes Adoption, Cloud FinOps, DevOps, Internal Developer Platform, AWS, Spain, Portugal, Europe, Green Energy, Solar]
 image: img/2025-06-27-sotysolar-success-story/thumbnail.jpg
 ---
