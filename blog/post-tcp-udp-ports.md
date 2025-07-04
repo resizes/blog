@@ -9,6 +9,8 @@ If you’ve ever tried to expose both TCP and UDP on the same port using Kuberne
 
 The good news is that AWS has released a feature that allows configuring listeners for both TCP and UDP on the same port, avoiding complex workarounds.
 
+<!--truncate-->
+
 To implement this, it’s important to verify two things:
 - That your **AWS Load Balancer Controller** is version **v2.13.0 or higher**.
 - That the **Helm chart** is **1.13.0 or higher** to ensure compatibility.
