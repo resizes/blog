@@ -3,7 +3,7 @@ slug: open-tcp-udp-same-port
 title: Easily open TCP and UDP protocols on the same port
 authors: lucia
 tags: [DevOps, PlatformEngineering, ALB, TCP, UDP, Kubernetes, Networking, AWS]
-image: TBD
+image: img/2025-07-04-tcp-udp/image.jpg
 ---
 If you’ve ever tried to expose both TCP and UDP on the same port using Kubernetes with AWS Load Balancers, you’ve probably run into a common limitation: you can only choose one protocol per port, which complicates applications that need both (such as real-time communications or gaming).
 
