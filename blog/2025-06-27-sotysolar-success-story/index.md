@@ -8,6 +8,8 @@ image: img/2025-06-27-sotysolar-success-story/thumbnail.jpg
 
 [Be Energy Part S.L](https://sotysolar.es) leads the solar panel installation sector in Europe with their innovative green solutions. The company modernized their technology stack through an Internal Developer Platform developed in collaboration with [Resizes Platform](https://resiz.es). This strategic partnership delivered significant improvements across multiple dimensions:
 
+<!--truncate-->
+
 ## **Key Results at a Glance**
 - **🚀 2+ Hours Saved** per deployment cycle (75% reduction)
 - **💰 30% Cost Reduction** in infrastructure spending
