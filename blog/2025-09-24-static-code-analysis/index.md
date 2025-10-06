@@ -55,22 +55,22 @@ Together, automation and visibility don’t just detect problems — they enable
 ## Minimizing Risk: Do You Really Need That Dependency?
 *Concept of risk surface*
 *Helping the team understand their decisions*
-Every dependency you add to a project opens a potential door for vulnerabilities. Even widely used libraries can introduce security risks, outdated versions may have known exploits, and unmaintained packages can silently accumulate issues over time. This is what we call the risk surface — the sum of all points where your application could be attacked.
+Every dependency you add to a project opens a **potential door for vulnerabilities**. Even widely used libraries can introduce security risks, outdated versions may have known exploits, and unmaintained packages can silently accumulate issues over time. This is what we call the **risk surface** — the sum of all points where your application could be attacked.
 
-Minimizing this risk starts with intentional decision-making. Before adding a new dependency, ask: Do we really need it? Is it actively maintained? Are there safer alternatives? Encouraging teams to think critically about each dependency not only reduces the attack surface but also promotes ownership of security decisions.
+Minimizing this risk starts with **intentional decision-making**. Before adding a new dependency, ask: **Do we really need it?** Is it actively maintained? Are there safer alternatives? Encouraging teams to think critically about each dependency not only reduces the attack surface but also promotes ownership of security decisions.
 
 It’s also important to regularly audit existing dependencies. Even packages that seemed safe when first added can become risky over time. By combining these audits with automated tools like SCA scanners, teams stay ahead of vulnerabilities instead of reacting to incidents after they occur.
 
-In short, managing dependencies thoughtfully is a crucial part of building secure software. Security isn’t just about catching vulnerabilities — it’s about reducing the potential avenues for risk before they ever appear.
+In short, managing dependencies thoughtfully is a crucial part of building secure software. Security isn’t just about catching vulnerabilities — it’s about **reducing the potential avenues for risk before they ever appear**.
 
 
 ## Starting Small and Staying Realistic
 *Acknowledging this is a big effort, especially for smaller teams, and may not be achievable immediately*
 *Share tips on educating teams to interpret scan results effectively*
-Implementing comprehensive security practices can feel overwhelming, especially for smaller teams or projects with tight deadlines. It’s important to remember that security is a journey, not a one-time fix.
+Implementing comprehensive **security practices can feel overwhelming**, especially for smaller teams or projects with tight deadlines. It’s important to remember that **security is a journey, not a one-time fix**.
 
 Start by focusing on the areas with the highest impact: critical repositories, major dependencies, or parts of the codebase that handle sensitive data. Gradually expand coverage over time, adding more rules, tools, and automation as the team gains confidence and experience.
 
-Equally important is education and empowerment. Tools will flag vulnerabilities, but developers need to understand what the alerts mean and how to address them effectively. Regularly reviewing findings, sharing lessons learned, and fostering a culture where security is part of everyday development turns a daunting task into manageable, incremental progress.
+Equally important is education and empowerment. Tools will flag vulnerabilities, but developers need to understand what the alerts mean and how to address them effectively. Regularly reviewing findings, sharing lessons learned, and **fostering a culture where security is part of everyday development** turns a daunting task into manageable, incremental progress.
 
 By starting small, prioritizing high-risk areas, and continuously learning, teams can build security into their workflow realistically and sustainably, ensuring that every step forward strengthens both the code and the culture around it.
