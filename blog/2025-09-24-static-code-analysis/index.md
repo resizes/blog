@@ -3,60 +3,67 @@ slug: static-code-analysis
 title: Where Code Meets Platform: Baking Security Into Every Build
 authors: gonza
 tags: [ApplicationSecurityTesting, SAST, StaticCodeAnalysis, SoftwareCompositionAnalysis, DependencyAnalysis, SecretDetection, VulnerabilityScanner]
-image: 
+image: img/2025-09-24-static-code-analysis/thumbnail.png
 ---
 
-## Shift-left phylosophy: Why does security matter?
-You might remember the recent supply chain attack targeting NPM packages — perhaps your team was among those affected. It was a stark reminder that a single vulnerable dependency can cause widespread disruption.
+## Shift-left Philosophy: Why Security Matters
+You might remember the recent supply chain attack that hit NPM packages — maybe your team even felt the impact. It was a good reminder that one vulnerable dependency can ripple across entire systems.
 
-Modern software is more complex than ever, with distributed codebases, countless dependencies, and fast-moving updates. Teams often overlook outdated packages or inadvertently introduce vulnerabilities, creating a critical security risk.
+Modern software is a tangled web of dependencies, containers, and distributed codebases. Things move fast, and it’s easy to miss outdated packages or accidentally introduce new risks. All of that adds up to a big security challenge.
 
-This is where shift-left security comes in: catching problems early in the development lifecycle. By doing so, teams can protect their code, users, and business before issues reach production.
+**Shift-left security** aims to solve this — catching issues early in the development process, before they make it to production. It’s not just about fixing problems; it’s about **preventing them in the first place**.
 
-So, if security is this important, how do we actually make our code safe? That’s where **Application Security Testing (AST)** enters the picture.
+So, if security needs to start early, how do we actually make that happen? That’s where **Application Security Testing (AST)** comes in.
 
-## Application Security Testing: What It Is and How It Works
-AST don’t just help teams check boxes for compliance — **they catch issues early**, reduce risk, and safeguard users.
+---
 
-AST encompasses several approaches, each targeting a different layer of potential risk:
-- **SAST (Static Application Security Testing)**: Scans your source code for vulnerabilities like insecure function calls or unvalidated user inputs before the application is even run.
-- **Secret Scanning**: Detects sensitive information accidentally committed to your repositories, such as API keys, passwords, or certificates.
-- **Software Composition Analysis (SCA)**: Examines your dependencies and open-source libraries to identify known vulnerabilities, outdated versions, or licensing issues.
+## Application Security Testing: What It Is and Why It Matters
+AST tools aren’t just there to tick compliance boxes — they help teams find problems early, reduce risk, and protect users before code ships.
 
-With these tools, teams gain **broad visibility** into potential security issues across code, dependencies, and secrets. AST doesn’t just flag problems — it helps teams **prevent vulnerabilities before they reach production**, enabling a proactive security mindset.
+There are a few key parts to it:  
+- **SAST (Static Application Security Testing):** Scans your source code for insecure patterns like unsafe inputs or weak function calls — all before your app even runs.  
+- **Secret Scanning:** Finds sensitive information (API keys, passwords, certificates) that might have accidentally ended up in your repos.  
+- **Software Composition Analysis (SCA):** Checks your dependencies and open-source libraries for known vulnerabilities or outdated versions.
+
+Together, these tools give you **a clear view of where your risks are** — across code, dependencies, and secrets. More importantly, they don’t just tell you something’s wrong; they help you **stop vulnerabilities before they become real issues**.
+
+---
 
 ## Integrating Security into Your Workflow
-Having the right types of security checks is essential, but the **real impact** comes from **embedding them directly into your development workflow**. Integrating AST tools into your **CI/CD pipeline** ensures that every commit, pull request, or build is scanned automatically.  
+Having the right tools is important, but the real magic happens when you **bake them into your everyday workflow**. By plugging AST tools into your **CI/CD pipeline**, every commit, pull request, or build can be scanned automatically.
 
-This approach makes security part of the natural development rhythm: issues are caught early, developers receive actionable feedback, and teams can **shift left**, preventing problems before they reach production and **turning strategy into everyday practice**.
+That means security checks happen as part of normal development — not as an afterthought. Issues are caught early, feedback goes straight to developers, and teams can **shift left**, turning security from a one-time event into part of their daily rhythm.
 
-By automating these checks, teams also reduce human error, enforce consistent standards, and gradually build a culture of proactive security that scales with the organization.
+Automating these checks also cuts down on human error, keeps standards consistent, and helps teams build a **culture of proactive security** that grows with the organization.
+
+---
 
 ## Tools Used
-Once a workflow is in place, the right tools make it practical. In our setup, we rely on a combination of specialized tools to cover different layers of security:
-- **Trivy** (SCA): Scans container images and dependency's versions for known vulnerabilities, helping teams catch risky components before deployment.
-- **TruffleHog** (secret scanning): Detects secrets, credentials, and sensitive data that may have been accidentally committed to repositories.
-- **Semgrep** (SAST): Provides customizable static analysis rules to find insecure patterns in code and enforce best practices across projects.
+Once the workflow is in place, the right tools make it stick. Here’s what we use to cover all the bases:  
+- **Trivy (SCA):** Scans container images and dependencies for known vulnerabilities before anything hits production.  
+- **TruffleHog (Secret Scanning):** Spots secrets, credentials, and sensitive data accidentally pushed to your repos.  
+- **Semgrep (SAST):** Uses custom static analysis rules to flag insecure code patterns and enforce best practices.
 
-Our solution integrates these tools seamlessly into the CI/CD pipeline, so scans run automatically with every commit or pull request. Developers get immediate feedback on potential issues through a report, allowing them to fix problems before they reach production, without disrupting the flow of development.
+We’ve integrated these tools directly into the CI/CD pipeline, so every commit or pull request triggers automatic scans. Developers get quick feedback through clear reports, so they can fix issues fast — without slowing down the build.
 
-Together, automation and visibility don’t just detect problems — they enable a culture of proactive security, making safety a natural part of daily development.
+By combining automation with visibility, these tools don’t just **find problems** — they help teams **build more secure software by default**.
+
+---
 
 ## Minimizing Risk: Do You Really Need That Dependency?
-Every dependency you add to a project opens a **potential door for vulnerabilities**. Even widely used libraries can introduce security risks, outdated versions may have known exploits, and unmaintained packages can silently accumulate issues over time. This is what we call the **risk surface** — the sum of all points where your application could be attacked.
+Every new dependency is a potential risk. Even popular libraries can bring in vulnerabilities, and unmaintained ones often turn into hidden liabilities. This is what we call your **risk surface** — all the points where your application could be attacked.
 
-Minimizing this risk starts with **intentional decision-making**. Before adding a new dependency, ask: **Do we really need it?** Is it actively maintained? Are there safer alternatives? Encouraging teams to think critically about each dependency not only reduces the attack surface but also promotes ownership of security decisions.
+To keep that surface small, start with one simple habit: ask, **“Do we really need this?”** before adding a new dependency. Check if it’s maintained, trusted, and necessary. The same goes for old dependencies — review them regularly and remove what you don’t use.
 
-It’s also important to regularly audit existing dependencies. Even packages that seemed safe when first added can become risky over time. By combining these audits with automated tools like SCA scanners, teams stay ahead of vulnerabilities instead of reacting to incidents after they occur.
+Tools like SCA scanners make this easier by flagging known issues automatically, but awareness and judgment still matter most. **Reducing risk isn’t just about fixing what’s broken — it’s about keeping things clean in the first place.**
 
-In short, managing dependencies thoughtfully is a crucial part of building secure software. Security isn’t just about catching vulnerabilities — it’s about **reducing the potential avenues for risk before they ever appear**.
-
+---
 
 ## Starting Small and Staying Realistic
-Implementing comprehensive **security practices can feel overwhelming**, especially for smaller teams or projects with tight deadlines. It’s important to remember that **security is a journey, not a one-time fix**.
+Rolling out all these practices at once can feel like a lot — especially for smaller teams. But security doesn’t have to be all or nothing. It’s better to **start small and grow steadily**.
 
-Start by focusing on the areas with the highest impact: critical repositories, major dependencies, or parts of the codebase that handle sensitive data. Gradually expand coverage over time, adding more rules, tools, and automation as the team gains confidence and experience.
+Begin with the areas that matter most: core repos, key dependencies, or code that handles sensitive data. From there, add more automation and rules as your team gets comfortable.
 
-Equally important is education and empowerment. Tools will flag vulnerabilities, but developers need to understand what the alerts mean and how to address them effectively. Regularly reviewing findings, sharing lessons learned, and **fostering a culture where security is part of everyday development** turns a daunting task into manageable, incremental progress.
+Education is just as important as tooling. Developers should understand what scan results mean and how to act on them. Over time, these habits turn security from something “extra” into something **everyone naturally does**.
 
-By starting small, prioritizing high-risk areas, and continuously learning, teams can build security into their workflow realistically and sustainably, ensuring that every step forward strengthens both the code and the culture around it.
+Small steps add up. Every new scan, every fixed issue, every improved dependency — they all make your software, and your team, stronger.
