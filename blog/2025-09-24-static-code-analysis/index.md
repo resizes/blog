@@ -36,6 +36,9 @@ That means security checks happen as part of normal development — not as an af
 
 Automating these checks also cuts down on human error, keeps standards consistent, and helps teams build a **culture of proactive security** that grows with the organization.
 
+In practice, this means security becomes a **natural checkpoint in your delivery flow**. For example, imagine your CI/CD pipeline detects a critical vulnerability in a dependency just before deployment. The release is automatically blocked — frustrating in the moment, indeed, but it might have just prevented a production outage or data leak. With clear reporting and well-defined exceptions, the team can decide whether to patch, replace, or (in rare, justified cases) move forward with a temporary risk waiver. 
+That’s real-world shift-left security: catching problems when they’re still easy to fix, not after customers are affected.
+
 ---
 
 ## Tools Used
@@ -60,10 +63,10 @@ Tools like SCA scanners make this easier by flagging known issues automatically,
 ---
 
 ## Starting Small and Staying Realistic
-Rolling out all these practices at once can feel like a lot — especially for smaller teams. But security doesn’t have to be all or nothing. It’s better to **start small and grow steadily**.
-
-Begin with the areas that matter most: core repos, key dependencies, or code that handles sensitive data. From there, add more automation and rules as your team gets comfortable.
+Rolling out all these practices at once can feel like a lot — especially for smaller teams. But security doesn’t have to be all or nothing. It’s better to **start small and grow steadily**. Begin with the areas that matter most: core repos, key dependencies, or code that handles sensitive data. From there, add more automation and rules as your team gets comfortable.
 
 Education is just as important as tooling. Developers should understand what scan results mean and how to act on them. Over time, these habits turn security from something “extra” into something **everyone naturally does**.
 
-Small steps add up. Every new scan, every fixed issue, every improved dependency — they all make your software, and your team, stronger.
+As your setup matures, it helps to define which checks are **mandatory** and which are **recommended**. For instance, secret scanning and dependency analysis might be non-negotiable in all projects, while SAST could start as “recommended” until coverage improves. This distinction sets clear expectations — security isn’t about blocking progress, but about managing risk with context.
+
+Over time, these habits don’t just make your software safer — they build trust. Each secure release reinforces your team’s reliability and your company’s reputation. **Security becomes part of your brand, not just your build.**
