@@ -5,7 +5,7 @@ authors: gonza
 tags: [ApplicationSecurityTesting, SAST, StaticCodeAnalysis, SoftwareCompositionAnalysis, DependencyAnalysis, SecretDetection, VulnerabilityScanner]
 image: img/2025-09-24-static-code-analysis/thumbnail.png
 ---
-
+ 
 ## Shift-left Philosophy: Why Security Matters
 You might remember the recent supply chain attack that hit NPM packages — maybe your team even felt the impact. It was a good reminder that one vulnerable dependency can ripple across entire systems.
 
