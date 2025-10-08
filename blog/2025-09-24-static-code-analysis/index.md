@@ -1,6 +1,6 @@
 ---
 slug: static-code-analysis
-title: Where Code Meets Platform: Baking Security Into Every Build
+title: "Where Code Meets Platform: Baking Security Into Every Build"
 authors: gonza
 tags: [ApplicationSecurityTesting, SAST, StaticCodeAnalysis, SoftwareCompositionAnalysis, DependencyAnalysis, SecretDetection, VulnerabilityScanner]
 image: img/2025-09-24-static-code-analysis/thumbnail.png
