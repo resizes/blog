@@ -11,6 +11,8 @@ You might remember the recent supply chain attack that hit NPM packages — mayb
 
 Modern software is a tangled web of dependencies, containers, and distributed codebases. Things move fast, and it’s easy to miss outdated packages or accidentally introduce new risks. All of that adds up to a big security challenge.
 
+<!--truncate-->
+
 **Shift-left security** aims to solve this — catching issues early in the development process, before they make it to production. It’s not just about fixing problems; it’s about **preventing them in the first place**.
 
 So, if security needs to start early, how do we actually make that happen? That’s where **Application Security Testing (AST)** comes in.
