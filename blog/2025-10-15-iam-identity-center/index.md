@@ -3,7 +3,7 @@ slug: iam-identity-center
 title: Automating AWS IAM Identity Center with Terraform for Multi-Account Environments
 authors: lucia
 tags: [AWS, IAM Identity Center, Terraform, Multi-Account, DevOps, Cloud Automation, Identity Management, Infrastructure as Code, Security, SSO, Cloud Engineering]
-image: img/2025-10-27-sotysolar-success-story/thumbnail.jpg
+image: img/2025-10-27-iam-identity-center/image.png
 ---
 
 # Automating AWS IAM Identity Center with Terraform in Multi-Account Environments
