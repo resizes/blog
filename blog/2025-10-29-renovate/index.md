@@ -26,9 +26,6 @@ It is possible to fully customize how this process works: *When* it runs, *how* 
 
 ## Why it matters
 ### Security-First Angle
-**Explain dependency drift as a hidden security risk: even if you run SAST scans, outdated libraries can still have unpatched vulnerabilities**
-**Highlight CVE management: Renovate can automatically bump vulnerable packages. Example: minor version bumps for a patched npm package after a CVE**
-**Discuss how Renovate complements SAST tools like Trivy, Semgrep, and Trufflehog.**
 Even if your app passes SAST or container scans, outdated dependencies can hide vulnerabilities.
 This is what’s called **dependency drift** — everything still runs, but the libraries you’re using have quietly accumulated known CVEs over time.
 
@@ -39,10 +36,6 @@ Renovate helps close that gap. As soon as a patched version is available, it can
 It’s not a replacement for scanners like Trivy, Semgrep, or Trufflehog — it’s the thing that keeps their results relevant. They catch issues, Renovate makes sure those issues don’t come back.
 
 ### Productivity and Workflow Enhancements
-**Time savings: quantify how much manual work is avoided by using Renovate.**
-**Developer happiness: fewer mundane PRs and merge conflicts.**
-**Auto-grouping of updates to reduce PR noise.**
-**Combine with CI/CD for fully automated, safe upgrades.**
 There’s also the human side. Manually tracking versions is boring, repetitive work that burns cognitive energy.
 A typical microservice might have 30–50 dependencies — checking each one regularly can take hours every month.
 
@@ -75,7 +68,7 @@ That’s it. The magic comes from how much you can configure it.
 
 ## Step-by-Step integration guide
 ### Option 1: GitHub App (simple setup)
-1. Go to [github.com/apps/renovate](https://github.com/mionki?page=1&tab=repositories)
+1. Go to [github.com/apps/renovate](https://github.com/apps/renovate)
 2. Install it on your repo
 3. Merge the onboarding PR it creates
 
@@ -236,10 +229,6 @@ We used to forget about this for months — now infra updates are steady and pre
 ---
 
 ## Sample renovate.json entries
-**Integrating Renovate with Slack or Teams for PR notifications.**
-**Using Renovate with monorepos & multiple languages.**
-**CI/CD impact: ensuring PRs pass tests before merge.**
-**Real-world case study or “before vs after” metrics (time saved, vulnerabilities patched).**
 So you saw before a full example on how to configure Renovate and you may have felt overwhelmed. But, let's take a look at some basic examples so you can build your own:
 
 ### The ”Just Works” Setup
