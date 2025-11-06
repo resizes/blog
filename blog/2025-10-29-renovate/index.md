@@ -68,23 +68,8 @@ When Renovate runs, it:
  3. Compares against your current versions and your config rules.
  4. Opens a PR with changelogs, diffs, and a test run.
 
-That’s it. The magic comes from how much you can configure it through ``renovate.json``:
-```json
-{
-  "extends": ["config:base"],
-  "automerge": true,
-  "packageRules": [
-    { "matchPackagePatterns": ["^aws"], "groupName": "AWS SDKs" },
-    { "matchDepTypes": ["devDependencies"], "schedule": ["before 5am on monday"] }
-  ]
-}
-```
-What does this previous example mean?
-- Use the recommended defaults (config:base)
-- Automatically merge safe updates
-- Group AWS-related packages together
-- Only update dev dependencies early Monday mornings
-It’s the kind of control that Dependabot just doesn’t give you.
+That’s it. The magic comes from how much you can configure it.
+![A sample PR created by Renovate](./PR-screenshot.png)
 
 ---
 
@@ -97,7 +82,7 @@ It’s the kind of control that Dependabot just doesn’t give you.
 That’s it. Renovate will start sending PRs.
 
 
-### Option 2: GitHub Action (fit to your needs)
+### Option 2: GitHub Action (fit to your needs)
 1. **Create your own GitHub App for renovate**
   - Click on your profile picture → ``Settings`` → ``Your Organization`` → ``Settings``.
   - Clock on the ``Developer settings`` → ``GitHub Apps`` → ``New GitHub App``.
@@ -111,7 +96,7 @@ That’s it. Renovate will start sending PRs.
  - ``RENOVATE_APP_ID``: The ID of your GitHub App.
  - ``RENOVATE_APP_PRIVATE_KEY``: The full private key of your GitHub App.
 
-3. **Create your own ``renovate.json``**
+3. **Create your own ``renovate.json``:**
 You can use this as a template and adapt it to your needs later on. Add it to your repo's root level:
 ```json
 {
@@ -179,10 +164,10 @@ You can use this as a template and adapt it to your needs later on. Add it to yo
         "enabled": true
     }
 
-}```
+}
+```
 
-4. Invoke our reusable workflow from your repo 
-You can use our reusable workflow from our [GitHub Actions repo]():
+4. **Invoke our reusable workflow from your repo:** You can use our reusable workflow from our [GitHub Actions repo]():
 ```yaml
 name: Renovate
 
@@ -239,12 +224,12 @@ jobs:
 
 --- 
 
-## Real examples
+## Real examples
 ### Node.js monorepo
 We use Renovate across several Node.js services. Instead of 10+ small PRs every week, we group all devDependency bumps into one.
 **Result: less noise, faster merges.**
 
-### Terraform infra repo
+### Terraform infra repo
 Renovate updates our AWS provider versions automatically.
 We used to forget about this for months — now infra updates are steady and predictable.
 
@@ -296,12 +281,6 @@ Renovate may have opened a PR at a moment where no one was at the office and tho
 }
 
 ```
-
----
-
-## Screnshoots and sample PRs
-
-![A sample PR created by Renovate](./PR-screenshot.png)
 
 --- 
 
