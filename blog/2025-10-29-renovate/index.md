@@ -8,14 +8,15 @@ image: img/image_route/image.png
 
 # Automating Dependency Updates with Renovate Bot (for Any Language)
 Keeping dependencies up to date is one of those things that everyone agrees is important… and yet no one enjoys doing.
+
 Between version pinning, breaking changes, and endless ``npm audit`` noise, it’s easy for dependency updates to pile up. The result? A pile of technical debt that will keep growing and growing.
 
-Renovate Bot is one of those tools that quietly removes that pain. It just runs in the background, opens clean pull requests when something is outdated, and — if you let it — merges them once your tests pass. You barely have to think about it.
+**Renovate Bot is one of those tools that quietly removes that pain**. It just runs in the background, opens clean pull requests when something is outdated, and — if you let it — merges them once your tests pass. You barely have to think about it.
 
 <!--truncate-->
 
 ## What is renovate
-Renovate is an open-source tool (by Mend) that automates dependency updates across basically any language or ecosystem. It supports npm, pip, Terraform, Docker, Maven, Go modules, and a bunch more.
+Renovate is an open-source tool (by Mend) that **automates dependency updates** across basically any language or ecosystem. It supports npm, pip, Terraform, Docker, Maven, Go modules, and a bunch more.
 
 At a high level, Renovate:
 - Scans your repo for dependencies.
@@ -33,10 +34,10 @@ For example, a project might still be using ``lodash@4.17.19`` from a few years 
 
 Renovate helps close that gap. As soon as a patched version is available, it can automatically open a PR. In many teams, these small bumps (minor or patch releases) are auto-merged if tests pass.
 
-It’s not a replacement for scanners like Trivy, Semgrep, or Trufflehog — it’s the thing that keeps their results relevant. They catch issues, Renovate makes sure those issues don’t come back.
+It’s not a replacement for scanners like **Trivy, Semgrep, or Trufflehog** — it’s the thing that **keeps their results relevant**. They catch issues, Renovate makes sure those issues don’t come back.
 
 ### Productivity and Workflow Enhancements
-There’s also the human side. Manually tracking versions is boring, repetitive work that burns cognitive energy.
+There’s also the human side. **Manually tracking versions is boring**, repetitive work that burns cognitive energy.
 A typical microservice might have 30–50 dependencies — checking each one regularly can take hours every month.
 
 With Renovate, that time disappears. You just get small, tidy pull requests that you can merge when ready (or let CI handle it).
@@ -44,13 +45,14 @@ With Renovate, that time disappears. You just get small, tidy pull requests that
 
 --- 
 
-## Renovate or Dependabot?
+## Renovate or Dependabot?
 So far, we’ve talked about all the cool parts of Renovate — but there’s one big drawback: because it’s so customizable, the configuration can get a bit dense.
+
 On the other hand, you’ve probably heard of Dependabot — hard not to, since GitHub shows it to you almost every day. But is it better or worse than Renovate? Which one should you actually use?
 
-At first glance, both bots do the same thing: keep your dependencies up to date. But Dependabot’s main goal is simplicity — a couple of clicks and you’re done. The trade-off is that you get zero configuration and, often, a flood of pull requests all at once, which can add a lot of overhead for your team.
+At first glance, both bots do the same thing: keep your dependencies up to date. But **Dependabot’s main goal is simplicity** — a couple of clicks and you’re done. The trade-off is that you get zero configuration and, often, a flood of pull requests all at once, which can add a lot of overhead for your team.
 
-Personally, I stick with Renovate because it lets me fine-tune the behavior exactly how I want it. If you prefer, you can still keep Dependabot around just for security alerts, or complement Renovate with a proper SAST stack (like the one we use [here...](https://blog.resiz.es/static-code-analysis))
+Personally, **I stick with Renovate** because it lets me fine-tune the behavior exactly how I want it. If you prefer, you can still keep Dependabot around just for security alerts, or complement Renovate with a proper SAST stack (like the one we use [here...](https://blog.resiz.es/static-code-analysis))
 
 ---
 
@@ -274,10 +276,10 @@ Renovate may have opened a PR at a moment where no one was at the office and tho
 --- 
 
 ## Tips From Experience
-- Don’t enable automerge on day one — watch how your CI handles updates first.
-- Group dependencies logically, by framework or team ownership. This will decrease the noise in your team's inboxes.
-- Label security updates clearly to make them easy to spot.
-- Merge the onboarding PR — it’s not optional.
+- Don’t enable automerge on day one — **watch how your CI handles updates** first.
+- **Group dependencies** logically, by framework or team ownership. This will decrease the noise in your team's inboxes.
+- **Label security updates** clearly to make them easy to spot.
+- **Merge the onboarding PR** — it’s not optional.
 
 ---
 
