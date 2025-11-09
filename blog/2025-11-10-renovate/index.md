@@ -235,14 +235,14 @@ So you saw before a full example on how to configure Renovate and you may have f
 
 ### The ”Just Works” Setup
 For example, you can use this as a quick configuration. It will follow the best practices while automerging minor and patch updates at a maximum rate of 2 PRs per hour. 
-``json
+```json
 {
   "extends": ["config:best-practices"],
   "automerge": true,
   "major": { "automerge": false },
   "prHourlyLimit": 2
 }
-``
+```
 
 ### Grouping PRs
 So if you actually use the example above, for sure you have noticed that there is a lot of noise going on. So let's group some version updates in the same PR:
