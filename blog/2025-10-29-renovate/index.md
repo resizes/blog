@@ -162,7 +162,7 @@ You can use this as a template and adapt it to your needs later on. Add it to yo
 }
 ```
 
-4. **Invoke our reusable workflow from your repo:** You can use our reusable workflow from our [GitHub Actions repo]():
+4. **Invoke our reusable workflow from your repo:** You can use our reusable workflow from our [GitHub Actions repo](https://github.com/resizes/github-actions/blob/feat/added-renovate/.github/workflows/renovate.yml):
 ```yaml
 name: Renovate
 
@@ -203,7 +203,7 @@ permissions:
 
 jobs:
   renovate:
-    uses: resizes/github-actions/.github/workflows/renovate.yml@feat/added-renovate
+    uses: resizes/github-actions/.github/workflows/renovate.yml@v1
     with:
       log_level: ${{ inputs.log_level }}
       dry_run: ${{ inputs.dry_run }}
@@ -284,3 +284,5 @@ Renovate may have opened a PR at a moment where no one was at the office and tho
 ---
 
 ## Links to public GitHub Action and README
+- [GitHub Action](https://github.com/resizes/github-actions/blob/feat/added-renovate/.github/workflows/renovate.yml)
+- [README](https://github.com/resizes/github-actions/tree/feat/added-renovate/.github/workflows)
