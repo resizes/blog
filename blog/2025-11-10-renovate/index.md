@@ -244,7 +244,7 @@ For example, you can use this as a quick configuration. It will follow the best 
 }
 ``
 
-### Grouping PRs
+### Grouping PRs
 So if you actually use the example above, for sure you have noticed that there is a lot of noise going on. So let's group some version updates in the same PR:
 ```json
 {
