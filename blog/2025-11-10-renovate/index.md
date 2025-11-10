@@ -3,7 +3,7 @@ slug: automating-dependency-updates-renovate-bot
 title: Automating Dependency Updates with Renovate Bot (for Any Language)
 authors: gonza
 tags: [DevOps, Third Party Dependency, Automated Dependencies, Cloud Automation, Infrastructure as Code, Security]
-image: ../img/2025-11-10-renovate/thumbnail.png
+image: img/2025-11-10-renovate/thumbnail.png
 ---
 
 # Automating Dependency Updates with Renovate Bot (for Any Language)
