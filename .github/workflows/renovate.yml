@@ -46,6 +46,13 @@ jobs:
       github_app_id: '2169914'
       owner: 'Resizes'
       repositories: |
-        dash-api
+        blog
     secrets:
       github_app_private_key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
+
+  show_pr_count:
+    needs: renovate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show PR count
+        run: echo "Renovate PR count: ${{ needs.renovate.outputs.pr_count }}"
