@@ -49,11 +49,17 @@ jobs:
         blog
     secrets:
       github_app_private_key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
-
-  # show_pr_count:
-  #   needs: renovate
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Show PR count
-  #       run: echo "Renovate PR count: ${{ needs.renovate.outputs.pr_count }}"
-        
+  
+  send_to_dc:
+    needs: renovate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord message if PRs exist
+        if: ${{ needs.renovate.outputs.pr_count != '0' }}
+        uses: ./path-to-your-actions/post-discord-message
+        with:
+          discord_channel_id: ${{ secrets.RENOVATE_UPDATE_DISCORD_CHANNEL_ID }}
+          discord_bot_token: ${{ secrets.RENOVATE_APP_BOT_DISCORD_TOKEN }}
+          message_content: |
+            Renovate opened ${{ needs.renovate.outputs.pr_count }} PR(s) for ${{ github.repository }}!
+            ${{ needs.renovate.outputs.pr_list }}
