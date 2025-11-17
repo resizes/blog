@@ -3,7 +3,7 @@ name: Renovate
 on:
   schedule:
   # Run every Monday at 5:00 AM UTC
-  - cron: '0 5 * * 1'
+    - cron: '0 5 * * 1'
   workflow_dispatch:
     inputs:
       log_level:
@@ -56,3 +56,4 @@ jobs:
     steps:
       - name: Show PR count
         run: echo "Renovate PR count: ${{ needs.renovate.outputs.pr_count }}"
+        
