@@ -56,7 +56,7 @@ jobs:
     steps:
       - name: Send Discord message if PRs exist
         if: ${{ needs.renovate.outputs.pr_count != '0' }}
-        uses: resizes/github-actions/discord/post-discord-message@v1
+        uses: resizes/github-actions/discord/post-message@v1
         with:
           discord_channel_id: ${{ secrets.RENOVATE_UPDATE_DISCORD_CHANNEL_ID }}
           discord_bot_token: ${{ secrets.RENOVATE_APP_BOT_DISCORD_TOKEN }}
