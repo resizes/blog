@@ -12,7 +12,7 @@
   
     "timezone": "UTC",
     "schedule": [
-        ["after 6am every monday", "before 8am every monday"]
+        "after 6am every monday", "before 8am every monday"
     ],
   
     "labels": ["renovate"],
