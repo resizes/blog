@@ -37,7 +37,7 @@ permissions:
 
 jobs:
   renovate:
-    uses: resizes/github-actions/.github/workflows/renovate.yml@feat/added-renovate
+    uses: resizes/github-actions/.github/workflows/renovate.yml@v1
     with:
       log_level: ${{ inputs.log_level }}
       dry_run: ${{ inputs.dry_run }}
@@ -46,20 +46,38 @@ jobs:
       github_app_id: '2169914'
       owner: 'Resizes'
       repositories: |
-        blog
+        ${{ github.event.repository.name }}
     secrets:
       github_app_private_key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
   
   send_to_dc:
     needs: renovate
     runs-on: ubuntu-latest
+    if: ${{ needs.renovate.outputs.pr_count != '0' }}
     steps:
-      - name: Send Discord message if PRs exist
-        if: ${{ needs.renovate.outputs.pr_count != '0' }}
+      - name: Prepare Discord embeds
+        run: |
+          COLOR="65280"  # Green
+          TITLE="Renovate PRs created!"
+          DESCRIPTION="**Renovate PRs were created**\n\n"
+
+          DESCRIPTION+="**Repository:** [${{ github.repository }}](https://github.com/${{ github.repository }}) \n"
+          DESCRIPTION+="**PR Count:** ${{ needs.renovate.outputs.pr_count }}\n\n"
+
+          EMBEDS_PAYLOAD="[{
+              \"title\": \"$TITLE\",
+              \"description\": \"$DESCRIPTION\",
+              \"color\": $COLOR
+            }]"
+
+          # Export embeds into ENV the same way your working workflow does
+          echo "EMBEDS_PAYLOAD<<EOF" >> $GITHUB_ENV
+          echo $EMBEDS_PAYLOAD >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Send Discord message
         uses: resizes/github-actions/discord/post-message@v1
         with:
           discord_channel_id: ${{ secrets.RENOVATE_UPDATE_DISCORD_CHANNEL_ID }}
           discord_bot_token: ${{ secrets.RENOVATE_APP_BOT_DISCORD_TOKEN }}
-          message_content: |
-            Renovate opened ${{ needs.renovate.outputs.pr_count }} PR(s) for ${{ github.repository }}!
-            ${{ needs.renovate.outputs.pr_list }}
+          message_embeds: ${{ env.EMBEDS_PAYLOAD }}
