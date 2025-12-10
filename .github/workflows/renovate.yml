@@ -37,29 +37,28 @@ permissions:
 
 jobs:
   renovate:
-    uses: resizes/github-actions/.github/workflows/renovate.yml@feat/added-renovate
+    uses: resizes/github-actions/.github/workflows/renovate.yml@v1.4.4
     with:
-      log_level: ${{ inputs.log_level }}
-      dry_run: ${{ inputs.dry_run }}
-      force_refresh: ${{ inputs.force_refresh }}
+      log_level: ${{ inputs.log_level || 'info' }}
+      dry_run: ${{ inputs.dry_run || false }}
+      force_refresh: ${{ inputs.force_refresh || false }}
       runner: 'ubuntu-latest'
       github_app_id: '2169914'
       owner: 'Resizes'
       repositories: |
-        blog
+        ${{ github.event.repository.name }}
     secrets:
       github_app_private_key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
   
   send_to_dc:
     needs: renovate
     runs-on: ubuntu-latest
+    if: ${{ needs.renovate.outputs.pr_count != '0' }}
     steps:
-      - name: Send Discord message if PRs exist
-        if: ${{ needs.renovate.outputs.pr_count != '0' }}
-        uses: resizes/github-actions/discord/post-message@v1
+      - name: Send Discord message
+        uses: resizes/github-actions/discord/post-renovate@v1.4.4
         with:
+          pr_count: ${{ needs.renovate.outputs.pr_count }}
+          repository: ${{ github.repository }}
           discord_channel_id: ${{ secrets.RENOVATE_UPDATE_DISCORD_CHANNEL_ID }}
           discord_bot_token: ${{ secrets.RENOVATE_APP_BOT_DISCORD_TOKEN }}
-          message_content: |
-            Renovate opened ${{ needs.renovate.outputs.pr_count }} PR(s) for ${{ github.repository }}!
-            ${{ needs.renovate.outputs.pr_list }}
