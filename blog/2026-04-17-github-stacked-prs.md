@@ -3,6 +3,7 @@ slug: github-stacked-prs
 title: GitHub Stacked PRs - How to Split Large Changes into Small PRs Without Losing Your Mind
 authors: guille
 tags: [GitHub, Pull Requests, Workflow, Developer Experience]
+image: /img/github-stacked-prs.png
 ---
 
 The problem of giant PRs that nobody wants to review is universal. You open a pull request with 50 modified files and think: "this is going to take days to review." Reviewers lose context, conflicts pile up, and feedback gets fragmented.
