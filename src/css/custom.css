@@ -28,8 +28,8 @@
   --ifm-footer-title-color: #f9fafa;
   --ifm-footer-link-color: #fbfcfc;
   --ifm-footer-color: #f9fafa;
-  --ifm-footer-link-hover-color: #fe1aa7;
-  --ifm-pagination-nav-color-hover: #fe1aa7;
+  --ifm-footer-link-hover-color: #3B96FE;
+  --ifm-pagination-nav-color-hover: #3B96FE;
 }
 
 b.navbar__title {
@@ -41,14 +41,14 @@ div.navbar__logo {
 }
 
 .hash-link {
-  color: #fe1aa7;
+  color: #3B96FE;
 }
 .hash-link:hover {
-  color: #f71a40;
+  color: #2a7de6;
 }
 
 #__blog-post-container > p > a {
-  color: #fe1aa7;
+  color: #3B96FE;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. linear-gradient(0deg,#FE1AA7 0%,#F71A40 165%) */

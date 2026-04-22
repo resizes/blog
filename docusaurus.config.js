@@ -70,8 +70,8 @@ const config = {
         title: 'Resizes',
         logo: {
           alt: 'Resizes Logo',
-          src: 'img/logo-resizes.svg',
-          srcDark: 'img/logo-resizes-dark.svg',
+          src: 'img/resizes-logo.png',
+          srcDark: 'img/resizes-logo.png',
           href: 'https://resiz.es',
         },
         items: [
