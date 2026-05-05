@@ -12,6 +12,8 @@ Many engineering teams struggle with balancing autonomy and alignment, often bec
 
 This is where **team topologies** come in. A strategic approach to designing platform teams that ensures they integrate smoothly with engineering workflows and maximize their impact.
 
+<!--truncate-->
+
 ## What Are Team Topologies?
 
 Team topologies is a conceptual framework to evolve organizational structures and achieve software team interactions for fast, reliable, and adaptive delivery. It eliminates silos in software development, enhancing productivity and optimizing resource allocation.
