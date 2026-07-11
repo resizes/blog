@@ -1,0 +1,19 @@
+version: 1
+
+docs:
+  owner: resizes
+  repository: internal-technical-docs
+  branch: main
+
+watch:
+  paths:
+    - "**/*"
+  ignore:
+    - "**/*.test.*"
+    - "**/test/**"
+    - "**/tests/**"
+    - ".github/workflows/sync-wiki.yml"
+
+behavior:
+  dry_run: false
+  max_files: 30
