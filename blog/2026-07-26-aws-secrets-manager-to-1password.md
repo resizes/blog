@@ -4,7 +4,7 @@ title: "Stop paying $0.40 per secret: cut AWS Secrets Manager cost and run secre
 description: "What Secrets Manager really costs at 50, 500, and 5,000 secrets — and how we help organisations move to a portable, cheaper operating model with 1Password and External Secrets."
 date: "2026-07-26"
 authors: ramiro
-image: /img/blog/aws-secrets-manager-to-1password/preview.jpg
+image: /img/aws-secrets-manager-to-1password.jpg
 tags:
   - engineering
   - kubernetes
