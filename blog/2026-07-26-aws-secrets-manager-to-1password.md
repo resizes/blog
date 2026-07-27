@@ -144,4 +144,4 @@ If you want to know what Secrets Manager is costing **your** organisation and wh
 
 **Outcome we aim for:** lower AWS secrets spend, one operating model for humans and workloads, and a platform your teams can extend without growing a per-secret cloud tax every month.
 
-[Contact us](/contact) to schedule that conversation.
+[Contact us](https://www.resiz.es/contact) to schedule that conversation.
