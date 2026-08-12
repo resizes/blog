@@ -1,0 +1,51 @@
+name: Analyze Renovate PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+    - 'package.json'
+    - 'package-lock.json'
+    - 'yarn.lock'
+    - 'pnpm-lock.yaml'
+    - 'requirements.txt'
+    - 'Pipfile'
+    - 'poetry.lock'
+    - 'go.mod'
+    - 'go.sum'
+    - 'Cargo.toml'
+    - 'Cargo.lock'
+    - 'pom.xml'
+    - 'build.gradle'
+    - '*.csproj'
+    - '*.sln'
+    - '**/*.yml'
+    - '**/*.yaml'
+    - '**/docker-compose*.yml'
+    - '**/docker-compose*.yaml'
+    - '**/Dockerfile*'
+
+jobs:
+  analyze:
+    # Only run on PRs from Renovate bot
+    if: github.event.pull_request.user.login == 'resizes-renovate[bot]' || github.event.pull_request.user.login == 'resizes-renovate'
+    runs-on: actions-runners
+
+    permissions:
+      contents: read
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+      
+      - name: Analyze PR
+        uses: kaskol10/self-hosted-renovate-review@main
+        with:
+          llm_api_url: "https://litellm.internal.resiz.es"
+          llm_api_key: 'not-needed'
+          llm_provider: 'litellm'
+          llm_model: "ollama/granite4:latest"
