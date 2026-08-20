@@ -4,6 +4,7 @@ title: "One message, dozens of calls: how we measured and cut agent-chat spend"
 description: "A chat message is not one request — it is a loop of model calls. How we attributed LiteLLM spend, saw the whole proxy in Grafana, and cut tokens without breaking the agent."
 date: "2026-08-20"
 authors: pablo
+image: /img/20-08-2026_-_Agen-chat_spend.jpg
 tags:
   - engineering
   - observability
