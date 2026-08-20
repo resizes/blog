@@ -40,7 +40,7 @@ dario:
   url: https://www.linkedin.com/in/dariogmori
   image_url: https://github.com/dariogmori.png
 
-gonza: 
+gonza:
   name: Gonzalo Suárez
   title: Junior Platform Engineer
   url: https://www.linkedin.com/in/gonzalo-suarez-losada/
@@ -57,3 +57,9 @@ ramiro:
   title: Staff Platform Engineer
   url: https://ramiroalvfer.dev/
   image_url: https://github.com/kaskol10.png
+
+pablo:
+  name: Pablo Suárez
+  title: Junior Product Engineer
+  url: https://www.linkedin.com/in/pablospena
+  image_url: https://github.com/4pablospena.png
