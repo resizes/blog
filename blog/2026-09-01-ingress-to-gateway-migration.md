@@ -1,8 +1,10 @@
 ---
-id: "ingress-to-gateway-migration"
+slug: ingress-to-gateway-migration
 title: "Ingress NGINX is retiring — how we cut over to Envoy Gateway in 3 days (without downtime)"
 description: "SIG Network retires Ingress NGINX in March 2026. Scope, the oauth2-proxy bugs we caught before DNS moved, what ingress2gateway does not cover, and how Resizes runs the same cutover for you."
-date: "2026-08-28"
+date: "2026-09-01"
+authors: ramiro
+image: /img/01-09-2026_ingress-to-gateway.jpg
 categories:
   - engineering
   - kubernetes
@@ -14,7 +16,6 @@ tags:
   - kubernetes
   - migration
   - platform-engineering
-cover: "posts/ingress-to-gateway.webp"
 ---
 
 Most organizations do not have an **ingress strategy**. They have NGINX controllers that grew with the cluster — snippet annotations, oauth2-proxy in front of internal tools, cert-manager secrets in app namespaces — and a [March 2026 deadline](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/) that is not on anyone's roadmap yet.
