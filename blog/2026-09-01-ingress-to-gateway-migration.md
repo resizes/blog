@@ -24,6 +24,8 @@ At **[Resizes](https://resiz.es/)**, we migrated production traffic on EKS from 
 
 **Three days** is the **DNS cutover window**, not the full program. Platform design, Envoy Gateway rollout, and our migration toolkit came first. Those three days were lane conversion, GitOps merges, and moving ~50 hostnames — **no user-visible outage**, **no DNS rollback**, **no incidents filed in our change log**. We scaled NGINX down about a week later, after soak.
 
+<!--truncate-->
+
 ---
 
 ## Scope
